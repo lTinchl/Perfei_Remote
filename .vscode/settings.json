@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "systick.h": "c",
+        "stm32f10x.h": "c",
+        "u8g2.h": "c",
+        "u8g2_oledinit.h": "c",
+        "iic_oled.h": "c",
+        "oledfont.h": "c",
+        "nvic.h": "c",
+        "compile.h": "c",
+        "compare": "c",
+        "nrf24l01.h": "c",
+        "pair_freq.h": "c",
+        "spi.h": "c",
+        "sendpacket.h": "c",
+        "timing_trigger.h": "c"
+    }
+}
