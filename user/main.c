@@ -21,7 +21,7 @@ int main(void)
     SystemInit();
     systick_init();
 
-    LedInit();
+    //LedInit();
     Usart1Init(115200);
     get_chip_id();
 

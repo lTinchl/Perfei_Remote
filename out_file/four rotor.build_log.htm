@@ -28,18 +28,11 @@ Project File Date:  07/19/2025
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_MDK\ARM\ARMCC\Bin'
 Build target 'remote'
 compiling main.c...
-compiling ui.c...
-..\ui\ui.c(34): warning:  #223-D: function "systick_get_ms" declared implicitly
-      uint32_t now = systick_get_ms();
-..\ui\ui.c(137): warning:  #223-D: function "analyze_packet" declared implicitly
-      analyze_packet(ADC_value); // 更新tx
-..\ui\ui.c(21): warning:  #550-D: variable "lastSignalStatus"  was set but never used
-  static u8 lastSignalStatus = 0xFF; // 初始化为非法值，确保第一次刷�?
-..\ui\ui.c: 3 warnings, 0 errors
+compiling key.c...
 linking...
-Program Size: Code=13482 RO-data=25634 RW-data=120 ZI-data=2848  
+Program Size: Code=13410 RO-data=25634 RW-data=120 ZI-data=2848  
 FromELF: creating hex file...
-"..\out_file\four rotor.axf" - 0 Error(s), 3 Warning(s).
+"..\out_file\four rotor.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
