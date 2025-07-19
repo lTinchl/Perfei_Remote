@@ -14,9 +14,6 @@
 - **对频成功界面**
 <img width="380" height="398" alt="image" src="https://github.com/user-attachments/assets/d6cb3a04-2a78-4a4a-8bc4-1905dec5ebff" />
 
-## 问题和建议
-如果有什么问题或者建议欢迎提交 [issue](https://github.com/lTinchl/Perfei_Remote/issues) 进行讨论
-
 ## 鸣谢
 
 - u8g2库: https://github.com/olikraus/u8g2
