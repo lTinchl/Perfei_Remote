@@ -14,10 +14,11 @@
 ## 效果
 
 - **信号丢失界面**
-![72304c9596af5fe854d00ab8c2b8ba5b](https://github.com/user-attachments/assets/0479d297-f553-4932-8c62-b11090126eef)
+<img width="466" height="645" alt="image" src="https://github.com/user-attachments/assets/6da6a0b1-d8bd-492f-bccc-02e889135491" />
+
 
 - **对频成功界面**
-![66083179adbf59f85c674146e612806d](https://github.com/user-attachments/assets/f2be913b-c23b-4737-8cf4-3d294b5918ed)
+<img width="466" height="645" alt="image" src="https://github.com/user-attachments/assets/f2be913b-c23b-4737-8cf4-3d294b5918ed" />
 
 
 ## 鸣谢
