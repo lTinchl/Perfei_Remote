@@ -7,8 +7,14 @@
 1. 通过Code下载压缩包解压使用
 2. 使用git clone部署至本地。
 
-## 问题和建议
+## 效果
+- **信号丢失界面**
+<img width="380" height="398" alt="image" src="https://github.com/user-attachments/assets/58da97ab-437f-4a35-b82a-624cfa201dec" />
 
+- **对频成功界面**
+<img width="380" height="398" alt="image" src="https://github.com/user-attachments/assets/d6cb3a04-2a78-4a4a-8bc4-1905dec5ebff" />
+
+## 问题和建议
 如果有什么问题或者建议欢迎提交 [issue](https://github.com/lTinchl/Perfei_Remote/issues) 进行讨论
 
 ## 鸣谢
