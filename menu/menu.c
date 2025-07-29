@@ -18,14 +18,19 @@ u8g2_t u8g2;
 
 void main_menu(void)
 {
-    update_smoothed_values();
-
     u8g2_ClearBuffer(&u8g2);   // 清屏
     DisplayInfo();             // 电压/锁定状态
-    ui_icon();               // 始终渲染图标文字
     Remotecontroldata();       // 丝滑进度条
     menu_fps(&u8g2);           // 右下角FPS显示
-    u8g2_SendBuffer(&u8g2);    // 始终推送到屏幕
+		ui_icon();                 // 始终渲染图标文字
+    u8g2_SendBuffer(&u8g2);    // 推送到屏幕
 }
 
+
+void no2_menu(void)
+{
+   u8g2_ClearBuffer(&u8g2);    //清屏
+   
+   u8g2_SendBuffer(&u8g2);    // 推送到屏幕
+}
 

@@ -14,6 +14,8 @@
 #include "u8g2.h"
 #include "RCC.h"
 #include "menu.h"
+#include "ui.h"
+
 
 int main(void)
 {
@@ -50,7 +52,10 @@ int main(void)
     {
         NrfTxPacket();  //发包
         key_info();     // 检测按键
-        main_menu();    //主菜单
+        if(menu_state == MENU_SET_ENTER)
+        {no2_menu();}
+        else
+        {main_menu();}
         WaitPairing();  //对频函数
         // OledDisplayPairStatus();
     }
