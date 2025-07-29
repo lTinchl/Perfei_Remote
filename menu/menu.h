@@ -7,7 +7,7 @@ extern u8g2_t u8g2;
 
 
 void main_menu(void);
-void no2_menu(void);
+void second_menu(void);
 
 #endif
 

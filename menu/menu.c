@@ -1,4 +1,4 @@
-#include "stm32f10x.h"
+﻿#include "stm32f10x.h"
 #include "systick.h"
 #include "spi.h"
 #include "nrf24l01.h"
@@ -21,12 +21,12 @@ void main_menu(void)
     DisplayInfo();             // 电压/锁定状态
     Remotecontroldata();       // 丝滑进度条
     menu_fps(&u8g2);           // 右下角FPS显示
-		ui_icon();                 // 始终渲染图标文字
+	main_muenu_ui();      // 主菜单UI
     u8g2_SendBuffer(&u8g2);    // 推送到屏幕
 }
 
 
-void no2_menu(void)
+void second_menu(void)
 {
    u8g2_ClearBuffer(&u8g2);    //清屏
    

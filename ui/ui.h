@@ -17,8 +17,8 @@ extern const uint8_t menu_count;
 
 void menu_fps(u8g2_t *u8g2);
 void DisplayInfo(void);
-void ui_icon(void);
-void no2_menu_ui_icon(void);
+void main_muenu_ui(void);
+void second_menu_ui(void);
 void Remotecontroldata(void);
 
 #endif  // _UI_H_

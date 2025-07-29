@@ -4,6 +4,7 @@
 #include "pair_freq.h"
 #include "u8g2.h"
 #include "sendpacket.h"
+
 extern Pair pair;
 
 //初始化24L01的IO口

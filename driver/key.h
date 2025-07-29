@@ -45,10 +45,6 @@ extern MenuContext menu_ctx;
 #define key_l2   GPIO_ReadInputDataBit(key_l2_port, key_l2_pin)
 #define key_r2   GPIO_ReadInputDataBit(key_r2_port, key_r2_pin)
 
-
-
-
-
 extern _KEY key;
 
 void KeyInit(void);

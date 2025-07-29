@@ -108,7 +108,7 @@ void DisplayInfo(void)
     }
 }
 
-void ui_icon(void)
+void main_muenu_ui(void)
 {
 
     u8g2_SetFont(&u8g2, u8g2_font_waffle_t_all);
@@ -148,7 +148,7 @@ void ui_icon(void)
     lastSignalStatus = currentSignalStatus;
 }
 
-void no2_menu_ui_icon(void)
+void second_menu_ui(void)
 {
     
 }
@@ -156,7 +156,8 @@ void no2_menu_ui_icon(void)
 void Remotecontroldata(void)
 {
     char buffer[16];
-
+		
+		update_smoothed_values();
     analyze_packet(ADC_value); // 更新tx
 
     uint8_t bar;
@@ -177,7 +178,7 @@ void Remotecontroldata(void)
     sprintf(buffer, "P:%d", tx.pit);
     u8g2_DrawStr(&u8g2, 70, 30, buffer);
 
-    int16_t pit_offset = (int16_t)tx.pit - 50;
+    int16_t pit_offset = (int16_t)smooth_pit - 50;
     u8g2_DrawFrame(&u8g2, bar_x_P_Y, 22, 28, 8);
     u8g2_DrawVLine(&u8g2, bar_x_P_Y + 13, 24, 4); // 中线
 
@@ -188,7 +189,7 @@ void Remotecontroldata(void)
     }
     else
     {
-        uint8_t width = pit_offset * 13 / 50;
+        uint8_t width = pit_offset * 14 / 50;
         u8g2_DrawBox(&u8g2, bar_x_P_Y + 14, 24, width, 4);
     }
 
@@ -197,7 +198,7 @@ void Remotecontroldata(void)
     sprintf(buffer, "R:%d", tx.rol);
     u8g2_DrawStr(&u8g2, 0, 44, buffer);
 
-    int16_t rol_offset = (int16_t)tx.rol - 50;
+    int16_t rol_offset = (int16_t)smooth_rol - 50;
     u8g2_DrawFrame(&u8g2, bar_x_T_R, 36, 28, 8);
     u8g2_DrawVLine(&u8g2, bar_x_T_R + 13, 38, 4); // 中线
 
@@ -208,7 +209,7 @@ void Remotecontroldata(void)
     }
     else
     {
-        uint8_t width = rol_offset * 13 / 50;
+        uint8_t width = rol_offset * 14 / 50;
         u8g2_DrawBox(&u8g2, bar_x_T_R + 14, 38, width, 4);
     }
 
@@ -216,7 +217,7 @@ void Remotecontroldata(void)
     sprintf(buffer, "Y:%d", tx.yaw);
     u8g2_DrawStr(&u8g2, 70, 44, buffer);
 
-    int16_t yaw_offset = (int16_t)tx.yaw - 50;
+    int16_t yaw_offset = (int16_t)smooth_yaw - 50;
     u8g2_DrawFrame(&u8g2, bar_x_P_Y, 36, 28, 8);
     u8g2_DrawVLine(&u8g2, bar_x_P_Y + 13, 38, 4); // 中线
 
@@ -227,7 +228,7 @@ void Remotecontroldata(void)
     }
     else
     {
-        uint8_t width = yaw_offset * 13 / 50;
+        uint8_t width = yaw_offset * 14 / 50;
         u8g2_DrawBox(&u8g2, bar_x_P_Y + 14, 38, width, 4);
     }
 }

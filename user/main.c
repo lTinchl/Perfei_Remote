@@ -53,7 +53,7 @@ int main(void)
         NrfTxPacket();  //发包
         key_info();     // 检测按键
         if(menu_state == MENU_SET_ENTER)
-        {no2_menu();}
+        {second_menu();}
         else
         {main_menu();}
         WaitPairing();  //对频函数
