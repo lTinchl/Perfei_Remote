@@ -35,3 +35,4 @@
 ..\out_file\key.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\out_file\key.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
 ..\out_file\key.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h
+..\out_file\key.o: ..\ui\ui.h

@@ -49,3 +49,4 @@
 ..\out_file\main.o: ..\driver\IIC_OLED.h
 ..\out_file\main.o: ..\RCC\RCC.h
 ..\out_file\main.o: ..\menu\menu.h
+..\out_file\main.o: ..\ui\ui.h

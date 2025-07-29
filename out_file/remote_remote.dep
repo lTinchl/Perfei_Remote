@@ -1,6 +1,6 @@
 Dependencies for Project 'remote', Target 'remote': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x687BD793)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\main.o --omf_browse ..\out_file\main.crf --depend ..\out_file\main.d)
+F (.\main.c)(0x688892C7)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\main.o --omf_browse ..\out_file\main.crf --depend ..\out_file\main.d)
 I (stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -45,12 +45,13 @@ I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\driver\timing_trigger.h)(0x65AF5B7E)
 I (..\driver\nvic.h)(0x65AF5B7E)
 I (..\driver\adc.h)(0x687BB797)
-I (..\driver\key.h)(0x680FB6EC)
+I (..\driver\key.h)(0x68887E8D)
 I (..\driver\pair_freq.h)(0x687B53C4)
 I (..\driver\sendpacket.h)(0x687BC013)
 I (..\driver\IIC_OLED.h)(0x68304C08)
 I (..\RCC\RCC.h)(0x68302693)
-I (..\menu\menu.h)(0x687BC2D1)
+I (..\menu\menu.h)(0x6888923D)
+I (..\ui\ui.h)(0x688891CF)
 F (.\stm32f10x_it.c)(0x65AF5B7E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\stm32f10x_it.o --omf_browse ..\out_file\stm32f10x_it.crf --depend ..\out_file\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x65AF5B7E)
 I (stm32f10x.h)(0x65AF5B7E)
@@ -376,7 +377,7 @@ I (..\st_lib\inc\stm32f10x_tim.h)(0x65AF5B7E)
 I (..\st_lib\inc\stm32f10x_usart.h)(0x65AF5B7E)
 I (..\st_lib\inc\stm32f10x_wwdg.h)(0x65AF5B7E)
 I (..\st_lib\inc\misc.h)(0x65AF5B7E)
-F (..\driver\sendpacket.c)(0x687BBFCB)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\sendpacket.o --omf_browse ..\out_file\sendpacket.crf --depend ..\out_file\sendpacket.d)
+F (..\driver\sendpacket.c)(0x68888054)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\sendpacket.o --omf_browse ..\out_file\sendpacket.crf --depend ..\out_file\sendpacket.d)
 I (..\driver\sendpacket.h)(0x687BC013)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
@@ -412,7 +413,7 @@ I (..\driver\timing_trigger.h)(0x65AF5B7E)
 I (..\driver\usart1.h)(0x65AF5B7E)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\driver\adc.h)(0x687BB797)
-I (..\driver\key.h)(0x680FB6EC)
+I (..\driver\key.h)(0x68887E8D)
 I (..\driver\led.h)(0x65AF5B7E)
 I (..\driver\pair_freq.h)(0x687B53C4)
 I (..\u8g2\u8g2.h)(0x68302695)
@@ -456,8 +457,8 @@ I (..\u8g2\u8x8.h)(0x68302697)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (C:\Keil_MDK\ARM\ARMCC\include\limits.h)(0x60252376)
-F (..\driver\key.c)(0x687BCA7C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\key.o --omf_browse ..\out_file\key.crf --depend ..\out_file\key.d)
-I (..\driver\key.h)(0x680FB6EC)
+F (..\driver\key.c)(0x688882DD)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\key.o --omf_browse ..\out_file\key.crf --depend ..\out_file\key.d)
+I (..\driver\key.h)(0x68887E8D)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -492,6 +493,7 @@ I (..\u8g2\u8x8.h)(0x68302697)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (C:\Keil_MDK\ARM\ARMCC\include\limits.h)(0x60252376)
+I (..\ui\ui.h)(0x688891CF)
 F (..\driver\pair_freq.c)(0x687BB370)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\pair_freq.o --omf_browse ..\out_file\pair_freq.crf --depend ..\out_file\pair_freq.d)
 I (..\driver\pair_freq.h)(0x687B53C4)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
@@ -1205,7 +1207,7 @@ I (..\st_lib\inc\stm32f10x_tim.h)(0x65AF5B7E)
 I (..\st_lib\inc\stm32f10x_usart.h)(0x65AF5B7E)
 I (..\st_lib\inc\stm32f10x_wwdg.h)(0x65AF5B7E)
 I (..\st_lib\inc\misc.h)(0x65AF5B7E)
-F (..\menu\menu.c)(0x687BC598)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\menu.o --omf_browse ..\out_file\menu.crf --depend ..\out_file\menu.d)
+F (..\menu\menu.c)(0x688892D3)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\menu.o --omf_browse ..\out_file\menu.crf --depend ..\out_file\menu.d)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -1248,12 +1250,12 @@ I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\driver\timing_trigger.h)(0x65AF5B7E)
 I (..\driver\nvic.h)(0x65AF5B7E)
 I (..\driver\adc.h)(0x687BB797)
-I (..\driver\key.h)(0x680FB6EC)
+I (..\driver\key.h)(0x68887E8D)
 I (..\driver\pair_freq.h)(0x687B53C4)
 I (..\driver\sendpacket.h)(0x687BC013)
 I (..\driver\IIC_OLED.h)(0x68304C08)
-I (..\ui\ui.h)(0x687BC58F)
-F (..\ui\ui.c)(0x687BC64D)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\ui.o --omf_browse ..\out_file\ui.crf --depend ..\out_file\ui.d)
+I (..\ui\ui.h)(0x688891CF)
+F (..\ui\ui.c)(0x68888ED1)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\ui.o --omf_browse ..\out_file\ui.crf --depend ..\out_file\ui.d)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -1296,8 +1298,8 @@ I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\driver\timing_trigger.h)(0x65AF5B7E)
 I (..\driver\nvic.h)(0x65AF5B7E)
 I (..\driver\adc.h)(0x687BB797)
-I (..\driver\key.h)(0x680FB6EC)
+I (..\driver\key.h)(0x68887E8D)
 I (..\driver\pair_freq.h)(0x687B53C4)
 I (..\driver\sendpacket.h)(0x687BC013)
 I (..\driver\IIC_OLED.h)(0x68304C08)
-I (..\ui\ui.h)(0x687BC58F)
+I (..\ui\ui.h)(0x688891CF)
