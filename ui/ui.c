@@ -148,7 +148,10 @@ void ui_icon(void)
     lastSignalStatus = currentSignalStatus;
 }
 
-
+void no2_menu_ui_icon(void)
+{
+    
+}
 
 void Remotecontroldata(void)
 {

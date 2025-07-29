@@ -5,9 +5,9 @@
 #include "stm32f10x.h"
 
 typedef enum {
-    MENU_IDLE = 0,          // 初始状态
-    MENU_SET_HIGHLIGHT,     // 菜单高亮
-    MENU_SET_ENTER          // 进入二级菜单
+    MENU_IDLE = 0,          // 主界面
+    MENU_SET_HIGHLIGHT,     // 菜单高亮状态（选中当前层级菜单项）
+    MENU_SET_ENTER          // 进入当前层级菜单（准备进入下一层）
 } MenuState;
 
 extern MenuState menu_state;
@@ -18,6 +18,7 @@ extern const uint8_t menu_count;
 void menu_fps(u8g2_t *u8g2);
 void DisplayInfo(void);
 void ui_icon(void);
+void no2_menu_ui_icon(void);
 void Remotecontroldata(void);
 
 #endif  // _UI_H_

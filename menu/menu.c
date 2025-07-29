@@ -1,4 +1,4 @@
-﻿#include "stm32f10x.h"
+#include "stm32f10x.h"
 #include "systick.h"
 #include "spi.h"
 #include "nrf24l01.h"
@@ -14,7 +14,6 @@
 #include "ui.h"
 
 u8g2_t u8g2;
-
 
 void main_menu(void)
 {
