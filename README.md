@@ -9,10 +9,10 @@
 
 ## 效果
 - **信号丢失界面**
-<img width="380" height="398" alt="image" src="https://github.com/user-attachments/assets/58da97ab-437f-4a35-b82a-624cfa201dec" />
+
 
 - **对频成功界面**
-<img width="380" height="398" alt="image" src="https://github.com/user-attachments/assets/d6cb3a04-2a78-4a4a-8bc4-1905dec5ebff" />
+
 
 ## 鸣谢
 
