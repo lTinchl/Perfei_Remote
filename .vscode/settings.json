@@ -14,6 +14,7 @@
         "spi.h": "c",
         "sendpacket.h": "c",
         "timing_trigger.h": "c",
-        "oled_driver.h": "c"
+        "oled_driver.h": "c",
+        "stm32f10x_rcc.h": "c"
     }
 }

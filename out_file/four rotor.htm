@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\out_file\four rotor.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\out_file\four rotor.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Aug 16 17:26:55 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Aug 16 18:27:44 2025
 <BR><P>
 <H3>Maximum Stack Usage =        740 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -82,8 +82,8 @@ Function Pointers
  <LI><a href="#[32]">TIM1_TRG_COM_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[31]">TIM1_UP_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[34]">TIM2_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
- <LI><a href="#[35]">TIM3_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
- <LI><a href="#[36]">TIM4_IRQHandler</a> from main.o(i.TIM4_IRQHandler) referenced from startup_stm32f10x_md.o(RESET)
+ <LI><a href="#[35]">TIM3_IRQHandler</a> from main.o(i.TIM3_IRQHandler) referenced from startup_stm32f10x_md.o(RESET)
+ <LI><a href="#[36]">TIM4_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[3d]">USART1_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[3e]">USART2_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[3f]">USART3_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
@@ -103,8 +103,8 @@ Function Pointers
 Global Symbols
 </H3>
 <P><STRONG><a name="[49]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
 <P><STRONG><a name="[4a]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
@@ -506,7 +506,7 @@ Global Symbols
 <P><STRONG><a name="[34]"></a>TIM2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[35]"></a>TIM3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
+<P><STRONG><a name="[36]"></a>TIM4_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[3d]"></a>USART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
@@ -1054,9 +1054,9 @@ Global Symbols
 <P><STRONG><a name="[d]"></a>AboutOLED_UIAuxFunc</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, oled_ui_menudata.o(i.AboutOLED_UIAuxFunc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = AboutOLED_UIAuxFunc &rArr; ChangePoint &rArr; ChangeFloatNum &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowImageArea
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oled_ui_menudata.o(.data)
@@ -1064,9 +1064,9 @@ Global Symbols
 <P><STRONG><a name="[c]"></a>AboutThisDeviceAuxFunc</STRONG> (Thumb, 140 bytes, Stack size 40 bytes, oled_ui_menudata.o(i.AboutThisDeviceAuxFunc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = AboutThisDeviceAuxFunc &rArr; ChangePoint &rArr; ChangeFloatNum &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowImageArea
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oled_ui_menudata.o(.data)
@@ -1123,17 +1123,17 @@ Global Symbols
 <P><STRONG><a name="[b9]"></a>ChangeFloatNum</STRONG> (Thumb, 390 bytes, Stack size 56 bytes, oled_ui.o(i.ChangeFloatNum))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ChangeFloatNum &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmpeq
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeDistance
@@ -1152,22 +1152,22 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c5]"></a>CurrentMenuPageBackUp</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, oled_ui.o(i.CurrentMenuPageBackUp))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CurrentMenuPageBackUp &rArr; SetLineSplitZero
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CurrentMenuPageBackUp &rArr; __aeabi_fsub
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLineSplitZero
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLineSplitZero
 </UL>
 <BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RunFadeOut
 </UL>
 
 <P><STRONG><a name="[c8]"></a>CurrentMenuPageInit</STRONG> (Thumb, 214 bytes, Stack size 32 bytes, oled_ui.o(i.CurrentMenuPageInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CurrentMenuPageInit &rArr; SetLineSplitZero
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CurrentMenuPageInit &rArr; __aeabi_fadd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLineSplitZero
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLineSplitZero
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_Init
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RunFadeOut
@@ -1182,8 +1182,8 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[ad]"></a>DMA_ClearITPendingBit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_dma.o(i.DMA_ClearITPendingBit))
-<BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_DMA_Config
-<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Channel1_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Channel1_IRQHandler
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_DMA_Config
 </UL>
 
 <P><STRONG><a name="[af]"></a>DMA_Cmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_dma.o(i.DMA_Cmd))
@@ -1255,8 +1255,8 @@ Global Symbols
 <P><STRONG><a name="[d1]"></a>Encoder_Get</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, oled_ui_driver.o(i.Encoder_Get))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Encoder_Get
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetCounter
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetCounter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_KeyAndEncoderRecord
 </UL>
@@ -1268,10 +1268,10 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICStructInit
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_EncoderInterfaceConfig
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_Init
 </UL>
@@ -1479,7 +1479,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 732 + Unknown Stack Size
 <LI>Call Chain = MoveMenuElements &rArr; PrintMenuElements &rArr; DrawLinePermix &rArr; OLED_PrintfMixArea &rArr; OLED_ShowMixStringArea &rArr; OLED_ShowChineseArea &rArr; OLED_ShowImageArea
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetScrollBarHeight
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetScrollBarHeight
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetProbWidth
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetMenuFrame
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetCursor
@@ -1490,7 +1491,6 @@ Global Symbols
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeDistance
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeArea
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_SetColorMode
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Brightness
 </UL>
@@ -1594,13 +1594,13 @@ Global Symbols
 <P><STRONG><a name="[102]"></a>NVIC_Init</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_config
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
+<BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_config
 </UL>
 
 <P><STRONG><a name="[101]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_config
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
+<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_config
 </UL>
 
 <P><STRONG><a name="[100]"></a>NVIC_config</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, nvic.o(i.NVIC_config))
@@ -1623,10 +1623,10 @@ Global Symbols
 <P><STRONG><a name="[103]"></a>NrfTxPacket</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, sendpacket.o(i.NrfTxPacket))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = NrfTxPacket &rArr; NRF24L01_TxPacket &rArr; NrfRxPacket &rArr; NRF24L01_Read_Buf &rArr; SPI1_RW
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NRF24L01_TxPacket
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedBlink
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_exchange
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_exchange
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analyze_packet
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NRF24L01_TxPacket
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LedBlink
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1705,10 +1705,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 492 + Unknown Stack Size
 <LI>Call Chain = OLED_DrawWindow &rArr; OLED_PrintfMixArea &rArr; OLED_ShowMixStringArea &rArr; OLED_ShowChineseArea &rArr; OLED_ShowImageArea
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWindowProbDataStyle
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOLED_Font
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalcStringWidth
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
@@ -1717,6 +1714,9 @@ Global Symbols
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWindowProbDataStyle
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOLED_Font
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalcStringWidth
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_PrintfMixArea
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawRoundedRectangle
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawRectangle
@@ -1793,9 +1793,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = OLED_KeyAndEncoderRecord &rArr; Encoder_Get
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Get
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMenuItemNum
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_InterruptHandler
 </UL>
@@ -1975,7 +1975,9 @@ Global Symbols
 <P><STRONG><a name="[12e]"></a>OLED_UI_InterruptHandler</STRONG> (Thumb, 384 bytes, Stack size 32 bytes, oled_ui.o(i.OLED_UI_InterruptHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = OLED_UI_InterruptHandler &rArr; OLED_KeyAndEncoderRecord &rArr; Encoder_Get
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_KeyAndEncoderRecord
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_KeyAndEncoderRecord
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MenuItemsMoveUp
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MenuItemsMoveRight
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MenuItemsMoveLeft
@@ -1987,10 +1989,8 @@ Global Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetCurrentMenuPageMaxSlotNum
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterEventMenuItem
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BackEventMenuItem
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
 <P><STRONG><a name="[132]"></a>OLED_UI_MainLoop</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oled_ui.o(i.OLED_UI_MainLoop))
@@ -2050,8 +2050,7 @@ Global Symbols
 <P><STRONG><a name="[f1]"></a>OLED_WindowDataDispose</STRONG> (Thumb, 562 bytes, Stack size 24 bytes, oled_ui.o(i.OLED_WindowDataDispose))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = OLED_WindowDataDispose &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWindowProbDataStyle
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2f
@@ -2059,6 +2058,7 @@ Global Symbols
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2lz
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWindowProbDataStyle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveMenuElements
 </UL>
@@ -2092,7 +2092,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 708 + Unknown Stack Size
 <LI>Call Chain = PrintMenuElements &rArr; DrawLinePermix &rArr; OLED_PrintfMixArea &rArr; OLED_ShowMixStringArea &rArr; OLED_ShowChineseArea &rArr; OLED_ShowImageArea
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmpeq
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLineSplitZero
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOLED_Font
@@ -2100,13 +2107,6 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLinePermix
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalcStringWidth
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmpeq
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowImageArea
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_PrintfMixArea
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawRectangle
@@ -2235,14 +2235,14 @@ Global Symbols
 <P><STRONG><a name="[133]"></a>RunFadeOut</STRONG> (Thumb, 410 bytes, Stack size 40 bytes, oled_ui.o(i.RunFadeOut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = RunFadeOut &rArr; OLED_UI_FadeoutCurrentArea &rArr; OLED_UI_FadeOut_Masking &rArr; __aeabi_memcpy4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Enable
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Enable
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetCursorZero
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_FadeoutCurrentArea
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_FadeoutAllArea
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CurrentMenuPageInit
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CurrentMenuPageBackUp
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_MainLoop
 </UL>
@@ -2329,14 +2329,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 320 + Unknown Stack Size
 <LI>Call Chain = SetTargetCursor &rArr; CalcStringWidth &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOLED_Font
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalcStringWidth
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fmin
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetOLED_Font
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CalcStringWidth
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fmin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveMenuElements
 </UL>
@@ -2348,13 +2348,13 @@ Global Symbols
 <P><STRONG><a name="[eb]"></a>SetTargetProbWidth</STRONG> (Thumb, 338 bytes, Stack size 24 bytes, oled_ui.o(i.SetTargetProbWidth))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = SetTargetProbWidth &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWindowProbDataStyle
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2f
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWindowProbDataStyle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveMenuElements
 </UL>
@@ -2362,10 +2362,10 @@ Global Symbols
 <P><STRONG><a name="[ec]"></a>SetTargetScrollBarHeight</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, oled_ui.o(i.SetTargetScrollBarHeight))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SetTargetScrollBarHeight &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMenuItemNum
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMenuItemNum
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MoveMenuElements
 </UL>
@@ -2373,9 +2373,9 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>SettingAuxFunc</STRONG> (Thumb, 200 bytes, Stack size 48 bytes, oled_ui_menudata.o(i.SettingAuxFunc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = SettingAuxFunc &rArr; ChangePoint &rArr; ChangeFloatNum &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePoint
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowImageArea
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> oled_ui_menudata.o(.data)
@@ -2413,8 +2413,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(.text)
 </UL>
-<P><STRONG><a name="[36]"></a>TIM4_IRQHandler</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, main.o(i.TIM4_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = TIM4_IRQHandler &rArr; OLED_UI_InterruptHandler &rArr; OLED_KeyAndEncoderRecord &rArr; Encoder_Get
+<P><STRONG><a name="[35]"></a>TIM3_IRQHandler</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, main.o(i.TIM3_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = TIM3_IRQHandler &rArr; OLED_UI_InterruptHandler &rArr; OLED_KeyAndEncoderRecord &rArr; Encoder_Get
 </UL>
 <BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
@@ -2431,7 +2431,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[154]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_ClearITPendingBit))
-<BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
 <P><STRONG><a name="[cf]"></a>TIM_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_Cmd))
@@ -2453,18 +2453,18 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[153]"></a>TIM_GetITStatus</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(i.TIM_GetITStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
 <P><STRONG><a name="[d9]"></a>TIM_ICInit</STRONG> (Thumb, 280 bytes, Stack size 40 bytes, stm32f10x_tim.o(i.TIM_ICInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = TIM_ICInit &rArr; TI2_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC3Prescaler
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
 </UL>
@@ -2533,6 +2533,7 @@ Global Symbols
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_Init
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[163]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_Cmd))
@@ -2733,7 +2734,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[79]"></a>main</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[79]"></a>main</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 740 + Unknown Stack Size
 <LI>Call Chain = main &rArr; OLED_UI_MainLoop &rArr; MoveMenuElements &rArr; PrintMenuElements &rArr; DrawLinePermix &rArr; OLED_PrintfMixArea &rArr; OLED_ShowMixStringArea &rArr; OLED_ShowChineseArea &rArr; OLED_ShowImageArea
 </UL>
@@ -2743,6 +2744,7 @@ Global Symbols
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WaitPairing
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart1Init
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Init
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_HSE_Configuration
@@ -2944,10 +2946,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[188]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<BR><BR>[Called By]<UL><LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
-<LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 </UL>
 
 <P><STRONG><a name="[179]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
@@ -3017,9 +3019,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[19c]"></a>_fadd</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
+<BR><BR>[Calls]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fretinf
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
-<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
 </UL>
 
 <P><STRONG><a name="[1a0]"></a>__fpl_fcmp_Inf</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fcmpi.o(x$fpl$fcmpinf), UNUSED)
@@ -3141,8 +3143,8 @@ Global Symbols
 <P><STRONG><a name="[c2]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_InterruptHandler
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analyze_packet
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analyze_packet
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_InterruptHandler
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetScrollBarHeight
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTargetProbWidth
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WindowDataDispose
@@ -3168,10 +3170,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[184]"></a>__fpl_fretinf</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fretinf.o(x$fpl$fretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
-<LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
+<BR><BR>[Called By]<UL><LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
 <LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 </UL>
 
 <P><STRONG><a name="[110]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
@@ -3215,8 +3217,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1a9]"></a>_fsub</STRONG> (Thumb, 234 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
-<LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
+<BR><BR>[Calls]<UL><LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
+<LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
 <P><STRONG><a name="[139]"></a>__aeabi_f2lz</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, ffixll.o(x$fpl$llsfromf))

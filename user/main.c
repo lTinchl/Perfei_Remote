@@ -40,6 +40,7 @@ int main(void)
     KeyInit();
     ADC_Config();
     timing_trigger_init();
+    Timer_Init();
     NVIC_config();
 
     delay_ms(100);
@@ -53,8 +54,7 @@ int main(void)
     while (1)
     {
         NrfTxPacket();  //发包
-        // key_info();     // 检测按键
-        OLED_UI_MainLoop();
+        OLED_UI_MainLoop(); 
         // if(menu_state == MENU_SET_ENTER)
         // {second_menu();}
         // else
@@ -65,13 +65,12 @@ int main(void)
 }
 
 //中断函数
-void TIM4_IRQHandler(void)
+void TIM3_IRQHandler(void)
 {
-	if (TIM_GetITStatus(TIM4, TIM_IT_Update) == SET)
-	{
-		OLED_UI_InterruptHandler();
-		
-		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
-	}
+	  if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET)
+    {
+        OLED_UI_InterruptHandler();   // UI 每20ms刷新
+        TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
+    }
 }
 
