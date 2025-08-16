@@ -13,6 +13,7 @@
         "pair_freq.h": "c",
         "spi.h": "c",
         "sendpacket.h": "c",
-        "timing_trigger.h": "c"
+        "timing_trigger.h": "c",
+        "oled_driver.h": "c"
     }
 }

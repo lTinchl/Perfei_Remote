@@ -72,6 +72,12 @@
 "..\out_file\u8g2_oledinit.o"
 "..\out_file\rcc.o"
 "..\out_file\menu.o"
+"..\out_file\oled.o"
+"..\out_file\oled_driver.o"
+"..\out_file\oled_fonts.o"
+"..\out_file\oled_ui.o"
+"..\out_file\oled_ui_driver.o"
+"..\out_file\oled_ui_menudata.o"
 "..\out_file\ui.o"
 --strict --scatter "..\out_file\four rotor.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

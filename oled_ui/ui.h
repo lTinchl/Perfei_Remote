@@ -7,7 +7,7 @@
 typedef enum {
     MENU_IDLE = 0,          // 主界面
     MENU_SET_HIGHLIGHT,     // 菜单高亮状态（选中当前层级菜单项）
-    MENU_SET_ENTER          // 进入当前层级菜单（准备进入下一层）
+    MENU_SET_ENTER,         // 进入当前层级菜单（准备进入下一层）
 } MenuState;
 
 extern MenuState menu_state;

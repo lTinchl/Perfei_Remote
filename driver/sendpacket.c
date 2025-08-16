@@ -84,9 +84,9 @@ void data_exchange(uint8_t *dateBuff)
 			dateBuff[4] = tx.rol;		//横滚舵向
 			dateBuff[5] = tx.yaw;		//偏航舵向
 			dateBuff[6] = key.l1;		//左1功能按键
-			dateBuff[7] = key.r1;		//右2功能按键
-			dateBuff[8] = key.l2;		//未使用，可自行添加
-			dateBuff[9] = key.r2;		//未使用，可自行添加
+			dateBuff[7] = key.r1;		//右1功能按键
+			dateBuff[8] = key.l2;		//左2功能按键
+			dateBuff[9] = key.r2;		//右2功能按键
 			dateBuff[TX_PLOAD_WIDTH-1] = 0x8B;		//帧尾 
 		#elif BRUSHLESS_FOUR_AXIS_UAV
 			dateBuff[0] = 0xA8;		//帧头

@@ -1,5 +1,6 @@
-..\out_file\oled.o: ..\driver\oled.c
-..\out_file\oled.o: ..\driver\oled.h
+..\out_file\oled.o: ..\oled_ui\OLED.c
+..\out_file\oled.o: ..\oled_ui\OLED.h
+..\out_file\oled.o: ..\oled_ui\OLED_Driver.h
 ..\out_file\oled.o: ..\user\stm32f10x.h
 ..\out_file\oled.o: ..\core\core_cm3.h
 ..\out_file\oled.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdint.h
@@ -29,7 +30,9 @@
 ..\out_file\oled.o: ..\st_lib\inc\stm32f10x_usart.h
 ..\out_file\oled.o: ..\st_lib\inc\stm32f10x_wwdg.h
 ..\out_file\oled.o: ..\st_lib\inc\misc.h
-..\out_file\oled.o: ..\driver\OledFont.h
-..\out_file\oled.o: ..\driver\systick.h
-..\out_file\oled.o: ..\driver\iic.h
-..\out_file\oled.o: ..\driver\led.h
+..\out_file\oled.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\string.h
+..\out_file\oled.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+..\out_file\oled.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdio.h
+..\out_file\oled.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
+..\out_file\oled.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+..\out_file\oled.o: ..\oled_ui\OLED_Fonts.h

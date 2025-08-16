@@ -1,4 +1,4 @@
-..\out_file\ui.o: ..\ui\ui.c
+..\out_file\ui.o: ..\oled_ui\ui.c
 ..\out_file\ui.o: ..\user\stm32f10x.h
 ..\out_file\ui.o: ..\core\core_cm3.h
 ..\out_file\ui.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdint.h
@@ -46,4 +46,4 @@
 ..\out_file\ui.o: ..\driver\pair_freq.h
 ..\out_file\ui.o: ..\driver\sendpacket.h
 ..\out_file\ui.o: ..\driver\IIC_OLED.h
-..\out_file\ui.o: ..\ui\ui.h
+..\out_file\ui.o: ..\oled_ui\ui.h

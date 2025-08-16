@@ -49,4 +49,13 @@
 ..\out_file\main.o: ..\driver\IIC_OLED.h
 ..\out_file\main.o: ..\RCC\RCC.h
 ..\out_file\main.o: ..\menu\menu.h
-..\out_file\main.o: ..\ui\ui.h
+..\out_file\main.o: ..\oled_ui\ui.h
+..\out_file\main.o: ..\oled_ui\OLED_UI.h
+..\out_file\main.o: ..\oled_ui\OLED_UI_Driver.h
+..\out_file\main.o: ..\oled_ui\OLED.h
+..\out_file\main.o: ..\oled_ui\OLED_Driver.h
+..\out_file\main.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\string.h
+..\out_file\main.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+..\out_file\main.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
+..\out_file\main.o: ..\oled_ui\OLED_Fonts.h
+..\out_file\main.o: ..\oled_ui\OLED_UI_MenuData.h

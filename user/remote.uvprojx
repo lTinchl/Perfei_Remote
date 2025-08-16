@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\user;..\st_lib\inc;..\st_lib\src;..\driver;..\core;..\u8g2;..\RCC;..\menu;..\ui</IncludePath>
+              <IncludePath>..\user;..\st_lib\inc;..\st_lib\src;..\driver;..\core;..\u8g2;..\RCC;..\menu;..\oled_ui</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -885,12 +885,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>ui</GroupName>
+          <GroupName>oled_ui</GroupName>
           <Files>
+            <File>
+              <FileName>OLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\oled_ui\OLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\oled_ui\OLED_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\oled_ui\OLED_Fonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_UI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\oled_ui\OLED_UI.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_UI_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\oled_ui\OLED_UI_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_UI_MenuData.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\oled_ui\OLED_UI_MenuData.c</FilePath>
+            </File>
             <File>
               <FileName>ui.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\ui\ui.c</FilePath>
+              <FilePath>..\oled_ui\ui.c</FilePath>
             </File>
           </Files>
         </Group>

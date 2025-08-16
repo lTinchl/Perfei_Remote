@@ -15,6 +15,8 @@
 #include "RCC.h"
 #include "menu.h"
 #include "ui.h"
+#include "OLED_UI.h"
+#include "OLED_UI_MenuData.h"
 
 
 int main(void)
@@ -42,21 +44,34 @@ int main(void)
 
     delay_ms(100);
     RCC_HSE_Configuration();
-
-    OLED12864_IoInit();
-    u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0, u8x8_byte_sw_i2c, u8g2_gpio_and_delay_stm32);
-    u8g2_InitDisplay(&u8g2);
-    u8g2_SetPowerSave(&u8g2, 0);
+	
+    OLED_UI_Init(&MainMenuPage);
+    // u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0, u8x8_byte_sw_i2c, u8g2_gpio_and_delay_stm32);
+    // u8g2_InitDisplay(&u8g2);
+    // u8g2_SetPowerSave(&u8g2, 0);
 
     while (1)
     {
         NrfTxPacket();  //发包
-        key_info();     // 检测按键
-        if(menu_state == MENU_SET_ENTER)
-        {second_menu();}
-        else
-        {main_menu();}
+        // key_info();     // 检测按键
+        OLED_UI_MainLoop();
+        // if(menu_state == MENU_SET_ENTER)
+        // {second_menu();}
+        // else
+        // {main_menu();}
         WaitPairing();  //对频函数
         // OledDisplayPairStatus();
     }
 }
+
+//中断函数
+void TIM4_IRQHandler(void)
+{
+	if (TIM_GetITStatus(TIM4, TIM_IT_Update) == SET)
+	{
+		OLED_UI_InterruptHandler();
+		
+		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+	}
+}
+

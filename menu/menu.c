@@ -1,4 +1,4 @@
-﻿#include "stm32f10x.h"
+#include "stm32f10x.h"
 #include "systick.h"
 #include "spi.h"
 #include "nrf24l01.h"
