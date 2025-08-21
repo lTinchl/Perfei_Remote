@@ -1,7 +1,6 @@
 #include "u8g2.h"
 #include "u8g2_OLEDinit.h"
 #include "stm32f10x.h"
-#include "IIC_OLED.h"
 #include "systick.h"
 
 //u8g2_t u8g2;

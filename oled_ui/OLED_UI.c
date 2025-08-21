@@ -446,7 +446,26 @@ void CurrentMenuPageInit(void){
 		OLED_UI_LineStep.TargetDistance = CurrentMenuPage->General_LineSpace;
 		//设置当前光标为当前菜单项的第一个
 		CurrentMenuPage->_ActiveMenuID = 0;
-	}
+	}else
+	//如果当前的菜单类型为STATIC
+    if (CurrentMenuPage->General_MenuType == MENU_TYPE_STATIC){     
+        // 静态页不依赖列表区域，默认全屏显示且不需要滚动
+        OLED_UI_PageStartPoint.CurrentPoint.X = 0;
+        OLED_UI_PageStartPoint.CurrentPoint.Y = 0;
+        OLED_UI_PageStartPoint.TargetPoint.X  = 0;
+        OLED_UI_PageStartPoint.TargetPoint.Y  = 0;
+
+        // 框架里很多地方用到 MenuFrame，给个全屏区域即可
+        OLED_UI_MenuFrame.TargetArea.X = 0;
+        OLED_UI_MenuFrame.TargetArea.Y = 0;
+        OLED_UI_MenuFrame.TargetArea.Width  = OLED_WIDTH;
+        OLED_UI_MenuFrame.TargetArea.Height = OLED_HEIGHT;
+
+        OLED_UI_LineStep.CurrentDistance = 0;
+        OLED_UI_LineStep.TargetDistance  = 0;
+        CurrentMenuPage->_ActiveMenuID = 0;
+        CurrentMenuPage->_Slot = 0;
+    }
 	//将滚动的开始点归零，确保当确认或是返回操作时，滚动的菜单项都从新开始
 	SetLineSplitZero();
 	
@@ -484,7 +503,18 @@ void CurrentMenuPageBackUp(void){
 		OLED_UI_LineStep.CurrentDistance = CurrentMenuPage->General_LineSpace;
 		//设置目标行间距
 		OLED_UI_LineStep.TargetDistance = CurrentMenuPage->General_LineSpace;
-	}
+	}else
+	//如果当前的菜单类型为STATIC
+    if (CurrentMenuPage->General_MenuType == MENU_TYPE_STATIC){     
+        // 静态页没有进入动画，回父页时不需要特别过渡
+        OLED_UI_PageStartPoint.CurrentPoint.X = 0;
+        OLED_UI_PageStartPoint.CurrentPoint.Y = 0;
+        OLED_UI_PageStartPoint.TargetPoint.X  = 0;
+        OLED_UI_PageStartPoint.TargetPoint.Y  = 0;
+
+        OLED_UI_LineStep.CurrentDistance = 0;
+        OLED_UI_LineStep.TargetDistance  = 0;
+    }
 	
 	//将滚动的开始点归零，确保当确认或是返回操作时，滚动的菜单项都从新开始
 	SetLineSplitZero();
@@ -907,6 +937,10 @@ void SetTargetCursor(void){
 		OLED_UI_Cursor.TargetArea.Width = CalcStringWidth(GetOLED_Font(CurrentMenuPage->General_FontSize,CHINESE),GetOLED_Font(CurrentMenuPage->General_FontSize,ASCII),CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_item_text) + 2;
 
 	}
+	//如果当前页面的类型为STATIC类
+	if(CurrentMenuPage->General_MenuType == MENU_TYPE_STATIC){   
+        SetCursorZero();   // 静态页不显示光标
+    }
 }
 /**
  * @brief 设置目标菜单边框
@@ -914,6 +948,10 @@ void SetTargetCursor(void){
  * @return 无
  */
 void SetTargetMenuFrame(void){
+	if (CurrentMenuPage->General_MenuType == MENU_TYPE_STATIC){
+        OLED_UI_MenuFrame.TargetArea = (OLED_Area){0,0,OLED_WIDTH,OLED_HEIGHT};
+        return;
+    }
 	OLED_UI_MenuFrame.TargetArea.X = CurrentMenuPage->List_MenuArea.X;
 	OLED_UI_MenuFrame.TargetArea.Y = CurrentMenuPage->List_MenuArea.Y;
 	OLED_UI_MenuFrame.TargetArea.Width = CurrentMenuPage->List_MenuArea.Width;
@@ -926,10 +964,11 @@ void SetTargetMenuFrame(void){
  * @return 无
  */
 void SetLineSplitZero(void){
-	MenuPage* page = CurrentMenuPage;
-	for(MenuID i = 0; i<GetMenuItemNum(page->General_MenuItems);i++){
-		page->General_MenuItems[i]._LineSlip = 0;
-	}
+    MenuPage* page = CurrentMenuPage;
+    if (!page || !page->General_MenuItems) return;   
+    for (MenuID i = 0; i < GetMenuItemNum(page->General_MenuItems); i++) {
+        page->General_MenuItems[i]._LineSlip = 0;
+    }
 }
 
 /**
@@ -942,6 +981,8 @@ void SetTargetScrollBarHeight(void){
 		OLED_UI_ScrollBarHeight.TargetDistance = (float)CurrentMenuPage->List_MenuArea.Height*(CurrentMenuPage->_ActiveMenuID + 1)/GetMenuItemNum(CurrentMenuPage->General_MenuItems);
 	}else if(CurrentMenuPage->General_MenuType == MENU_TYPE_TILES){
 		OLED_UI_ScrollBarHeight.TargetDistance = (float)(CurrentMenuPage->Tiles_ScreenWidth *(CurrentMenuPage->_ActiveMenuID + 1)/GetMenuItemNum(CurrentMenuPage->General_MenuItems));
+	}else if(CurrentMenuPage->General_MenuType == MENU_TYPE_STATIC){
+		OLED_UI_ScrollBarHeight.TargetDistance = 0;  //不显示滚动条
 	}
 }
 /**
@@ -1048,6 +1089,14 @@ void PrintMenuElements(void){
 	OLED_ChangePoint TempTargetPoint = OLED_UI_PageStartPoint;
 	OLED_ChangeArea TempTargetArea = OLED_UI_MenuFrame;
 	
+	//静态页：仅调用辅助绘制函数，然后 return，避免后面对菜单项的任何访问
+    if (page->General_MenuType == MENU_TYPE_STATIC) {
+        if(page->General_ShowAuxiliaryFunction != NULL){
+            page->General_ShowAuxiliaryFunction();
+        }
+        return;
+    }
+
 	//获取当前页面的菜单项数量
 	MenuID num = GetMenuItemNum(page->General_MenuItems);
 	//获取文本大小，从当前页面的字体宽度推算出ASCII字体宽度与中文字体宽度
@@ -1478,110 +1527,95 @@ void OLED_UI_CreateWindow(MenuWindow* window){
  * @return 无
  */
 void RunFadeOut(void){
-	/*如果当前的FadeOutFlag已经被置位，则说明正在运行渐隐效果。
-	当前在运行渐隐效果的前提条件有2个：
-	1.【在按下确认键的情况下】【如果当前选中菜单项没有回调函数，但是有子菜单】，此时 FadeOutFlag == ENTER_FLAGSTART
-	2.【在按下返回键的情况下】【如果当前菜单的父菜单不为空】，此时 FadeOutFlag == BACK_FLAGSTART
-	*/
-	if(FadeOutFlag != FLAGEND){
-		
-		//如果当前菜单是列表类
-		if(CurrentMenuPage->General_MenuType == MENU_TYPE_LIST){
-			//当前菜单项的页面类型是列表类的情况下，按下了确认按键
-			if(FadeOutFlag == ENTER_FLAGSTART){
-				// 在有确认操作之后，当前页面才被确认为已经初始化
-				CurrentMenuPage->_IfInit = true;
-				//（在有子菜单的情况下）如果当前页面的当前子菜单项的页面类型是列表类
-				if(CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage->General_MenuType == MENU_TYPE_LIST){
-					//只清除当前页面区域
-					OLED_UI_FadeoutCurrentArea(CurrentMenuPage->List_MenuArea.X,CurrentMenuPage->List_MenuArea.Y,CurrentMenuPage->List_MenuArea.Width-5,CurrentMenuPage->List_MenuArea.Height-2);
-				}else{
-					//清除全部区域
-					OLED_UI_FadeoutAllArea();
-					//将滚动条的当前高度设为0
-					OLED_UI_ScrollBarHeight.CurrentDistance = 0;
-				}
+    if (FadeOutFlag == FLAGEND) return;
 
-				//将当前菜单的位置保存，以便返回时恢复
-				CurrentMenuPage->_StartPoint.X = OLED_UI_PageStartPoint.TargetPoint.X;
-				CurrentMenuPage->_StartPoint.Y = OLED_UI_PageStartPoint.TargetPoint.Y;
+    switch (CurrentMenuPage->General_MenuType) {
+        case MENU_TYPE_LIST: {
+            if (FadeOutFlag == ENTER_FLAGSTART) {
+                CurrentMenuPage->_IfInit = true;
+                if (CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage->General_MenuType == MENU_TYPE_LIST) {
+                    OLED_UI_FadeoutCurrentArea(CurrentMenuPage->List_MenuArea.X, CurrentMenuPage->List_MenuArea.Y,
+                                               CurrentMenuPage->List_MenuArea.Width - 5, CurrentMenuPage->List_MenuArea.Height - 2);
+                } else {
+                    OLED_UI_FadeoutAllArea();
+                    OLED_UI_ScrollBarHeight.CurrentDistance = 0;
+                }
+                CurrentMenuPage->_StartPoint = OLED_UI_PageStartPoint.TargetPoint;
+                CurrentMenuPage = CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage;
+                CurrentMenuPageInit();
+            } else if (FadeOutFlag == BACK_FLAGSTART) {
+                if (CurrentMenuPage->General_ParentMenuPage->General_MenuType == MENU_TYPE_LIST) {
+                    OLED_UI_FadeoutCurrentArea(CurrentMenuPage->List_MenuArea.X, CurrentMenuPage->List_MenuArea.Y,
+                                               CurrentMenuPage->List_MenuArea.Width - 5, CurrentMenuPage->List_MenuArea.Height - 2);
+                } else {
+                    OLED_UI_FadeoutAllArea();
+                    OLED_UI_ScrollBarHeight.CurrentDistance = 0;
+                }
+                CurrentMenuPage = CurrentMenuPage->General_ParentMenuPage;
+                if (CurrentMenuPage->_IfInit == false) {
+                    CurrentMenuPageInit();
+                } else {
+                    CurrentMenuPageBackUp();
+                }
+            }
+            SetCursorZero();
+            ResetFadeOutFlag();
+            break;
+        }
 
-				//将当前菜单的指针指向子菜单
-				CurrentMenuPage = CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage;
-				//对当前子菜单进行初始化
-				CurrentMenuPageInit();
-			}
-			//当前菜单项的页面类型是列表类的情况下，按下了取消按键
-			if(FadeOutFlag == BACK_FLAGSTART) {
-				//如果当前页面的父菜单项的页面类型是列表类
-				if(CurrentMenuPage->General_ParentMenuPage->General_MenuType == MENU_TYPE_LIST){
-					//只清除当前页面区域
-					OLED_UI_FadeoutCurrentArea(CurrentMenuPage->List_MenuArea.X,CurrentMenuPage->List_MenuArea.Y,CurrentMenuPage->List_MenuArea.Width-5,CurrentMenuPage->List_MenuArea.Height-2);
-				}else{
-					//清除全部区域
-					OLED_UI_FadeoutAllArea();
-					//将滚动条的当前高度设为0
-					OLED_UI_ScrollBarHeight.CurrentDistance = 0;
-				}
-				//将当前菜单的指针指向父菜单
-				CurrentMenuPage = CurrentMenuPage->General_ParentMenuPage;
-				//将当前菜单的位置等参数恢复
-				if(CurrentMenuPage->_IfInit == false){
-		
-					CurrentMenuPageInit();
-				}else{
-					//将当前菜单的位置等参数恢复
-					CurrentMenuPageBackUp();
-				}
-			}
-			
-			//将FadeOutFlag复位
-			ResetFadeOutFlag();
-			//将当前光标区域与目标光标区域都设置为0
-			SetCursorZero();
+        case MENU_TYPE_TILES: {
+            OLED_UI_FadeoutAllArea();
+            if (FadeOutFlag == ENTER_FLAGSTART) {
+                CurrentMenuPage->_IfInit = true;
+                CurrentMenuPage->_StartPoint = OLED_UI_PageStartPoint.TargetPoint;
+                CurrentMenuPage = CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage;
+                CurrentMenuPageInit();
+            } else if (FadeOutFlag == BACK_FLAGSTART) {
+                CurrentMenuPage = CurrentMenuPage->General_ParentMenuPage;
+                if (CurrentMenuPage->_IfInit == false) {
+                    CurrentMenuPageInit();
+                } else {
+                    CurrentMenuPageBackUp();
+                }
+            }
+            OLED_UI_ScrollBarHeight.CurrentDistance = 0;
+            SetCursorZero();
+            ResetFadeOutFlag();
+            break;
+        }
 
-		}else //如果当前菜单类型是磁贴类
-		if(CurrentMenuPage->General_MenuType == MENU_TYPE_TILES){
-			//清除全部区域
-			OLED_UI_FadeoutAllArea();
-			//当前菜单项的页面类型是磁贴类的情况下，按下了确认操作
-			if(FadeOutFlag == ENTER_FLAGSTART){
-				// 在有确认操作之后，当前页面才被确认为已经初始化
-				CurrentMenuPage->_IfInit = true;
-				//将当前菜单的位置保存，以便返回时恢复
-				CurrentMenuPage->_StartPoint.X = OLED_UI_PageStartPoint.TargetPoint.X;
-				CurrentMenuPage->_StartPoint.Y = OLED_UI_PageStartPoint.TargetPoint.Y;
-				//将当前菜单的指针指向子菜单
-				CurrentMenuPage = CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage;
-				//对当前子菜单进行初始化
-				CurrentMenuPageInit();
-				
-			}
-			//当前菜单项的页面类型是磁贴类的情况下，按下了返回操作
-			if(FadeOutFlag == BACK_FLAGSTART){
-				//将当前菜单的指针指向父菜单
-				CurrentMenuPage = CurrentMenuPage->General_ParentMenuPage;
-				if(CurrentMenuPage->_IfInit == false){
-		
-					CurrentMenuPageInit();
-				}else{
-					//将当前菜单的位置等参数恢复
-					CurrentMenuPageBackUp();
-				}
-				
-			}
-			//将滚动条的当前高度设为0
-			OLED_UI_ScrollBarHeight.CurrentDistance = 0;
-			//将当前光标区域与目标光标区域都设置为0
-			SetCursorZero();
-			//将FadeOutFlag复位
-			ResetFadeOutFlag();
-		}
-		// 使能编码器
-		Encoder_Enable();
-		
-	}
+        case MENU_TYPE_STATIC: {
+            OLED_UI_FadeoutAllArea();
+            if (FadeOutFlag == ENTER_FLAGSTART) {
+                CurrentMenuPage->_IfInit = true;
+                CurrentMenuPage->_StartPoint = OLED_UI_PageStartPoint.TargetPoint;
+                if (CurrentMenuPage->General_MenuItems) {
+                    CurrentMenuPage = CurrentMenuPage->General_MenuItems[CurrentMenuPage->_ActiveMenuID].General_SubMenuPage;
+                    if (CurrentMenuPage) CurrentMenuPageInit();
+                }
+            } else if (FadeOutFlag == BACK_FLAGSTART) {
+                CurrentMenuPage = CurrentMenuPage->General_ParentMenuPage;
+                if (CurrentMenuPage->_IfInit == false) {
+                    CurrentMenuPageInit();
+                } else {
+                    CurrentMenuPageBackUp();
+                }
+            }
+            OLED_UI_ScrollBarHeight.CurrentDistance = 0;
+            SetCursorZero();
+            ResetFadeOutFlag();
+            break;
+        }
+
+        default:
+            // 防御：未知类型直接复位防止卡死
+            ResetFadeOutFlag();
+            break;
+    }
+
+    Encoder_Enable();  // 放到函数尾，统一收尾
 }
+
 
 /**
  * @brief 窗口内部数据处理
@@ -1635,7 +1669,7 @@ void OLED_WindowDataDispose(){
 					break;
 
 			}
-			
+		
 		}
 	}
 	WindowProbDeltaData = 0;
@@ -1847,4 +1881,10 @@ void OLED_UI_InterruptHandler(void){
 }
 #endif
 
-
+void Uav_Info(void){
+	OLED_Clear();
+	OLED_DrawRectangle(0,0,OLED_WIDTH,OLED_HEIGHT,OLED_UNFILLED); // 画个边框
+	OLED_ShowString(0,0,"STATIC OK", OLED_6X8_HALF);
+    OLED_ShowString(8, 8,  "111", OLED_6X8_HALF );
+    OLED_ShowString(8, 24, "back", OLED_6X8_HALF);
+}

@@ -3,8 +3,7 @@
 #include "usart1.h"
 #include "adc.h"
 #include "nrf24l01.h"
-#include "key.h"
-#include "led.h"
+// #include "key.h"
 #include "pair_freq.h"
 #include "u8g2.h"
 #include "compile.h"
@@ -83,10 +82,10 @@ void data_exchange(uint8_t *dateBuff)
 			dateBuff[3] = tx.pit;		//俯仰舵向
 			dateBuff[4] = tx.rol;		//横滚舵向
 			dateBuff[5] = tx.yaw;		//偏航舵向
-			dateBuff[6] = key.l1;		//左1功能按键
-			dateBuff[7] = key.r1;		//右1功能按键
-			dateBuff[8] = key.l2;		//左2功能按键
-			dateBuff[9] = key.r2;		//右2功能按键
+			// dateBuff[6] = key.l1;		//左1功能按键
+			// dateBuff[7] = key.r1;		//右1功能按键
+			// dateBuff[8] = key.l2;		//左2功能按键
+			// dateBuff[9] = key.r2;		//右2功能按键
 			dateBuff[TX_PLOAD_WIDTH-1] = 0x8B;		//帧尾 
 		#elif BRUSHLESS_FOUR_AXIS_UAV
 			dateBuff[0] = 0xA8;		//帧头
@@ -128,7 +127,7 @@ void NrfTxPacket(void)
         data_exchange(tx_dat);
         uint8_t ret = NRF24L01_TxPacket(tx_dat);
         if(ret != TX_OK){
-            LedBlink(YELLOW);
+            
         }
     }
 }

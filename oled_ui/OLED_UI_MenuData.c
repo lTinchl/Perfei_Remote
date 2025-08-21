@@ -1,5 +1,7 @@
 #include "OLED_UI_MenuData.h"
 #include "OLED_UI.h"
+#include "menu.h"
+#include "ui.h"
 
 /*此文件用于存放菜单数据。实际上菜单数据可以存放在任何地方，存放于此处是为了规范与代码模块化*/
 
@@ -11,6 +13,7 @@ extern int16_t OLED_UI_Brightness;
 float testfloatnum = 0.5;
 int32_t testintnum = 1;
 #define SPEED 10
+OLED_Key KeyState;
 
 //关于窗口的结构体
 MenuWindow SetBrightnessWindow = {
@@ -202,17 +205,30 @@ void MainAuxFunc(void){
 	WelcomeTextMove.CurrentPoint.Y = 0;
 }
 
+
 //主菜单的菜单项
 MenuItem MainMenuItems[] = {
 
+	{.General_item_text = "UavInfo",.General_callback = NULL ,.General_SubMenuPage = &UavInfoPage,.Tiles_Icon = Image_uavinfo},
+	{.General_item_text = "Uav Setting",.General_callback = NULL,.General_SubMenuPage = &UavMenuPage,.Tiles_Icon = Image_uavsettings},
 	{.General_item_text = "Settings",.General_callback = NULL,.General_SubMenuPage = &SettingsMenuPage,.Tiles_Icon = Image_setings},
-	{.General_item_text = "WeChat",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_wechat},
-	{.General_item_text = "Alipay",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_alipay},
-	{.General_item_text = "计算器 Calc 长文本测试 LongText",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_calc},
-	{.General_item_text = "Night",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_night},
+	// {.General_item_text = "WeChat",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_wechat},
+	// {.General_item_text = "Alipay",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_alipay},
+	// {.General_item_text = "计算器 Calc 长文本测试 LongText",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_calc},
+	// {.General_item_text = "Night",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_night},
 	{.General_item_text = "More",.General_callback = NULL,.General_SubMenuPage = &MoreMenuPage,.Tiles_Icon = Image_more},
 	{.General_item_text = NULL},/*最后一项的General_item_text置为NULL，表示该项为分割线*/
 
+};
+
+
+//飞机设定菜单项
+MenuItem UavMenuItems[] = {
+	{.General_item_text = "[返回]",.General_callback = OLED_UI_Back,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
+	{.General_item_text = "PID Setting",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
+	{.General_item_text = "MPU6050 Info",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
+
+	{.General_item_text = NULL},/*最后一项的General_item_text置为NULL，表示该项为分割线*/
 };
 
 //设置菜单项内容数组
@@ -706,5 +722,37 @@ MenuPage SmallAreaMenuPage = {
 	.List_StartPointX = 4,                        //列表起始点X坐标
 	.List_StartPointY = 2,                        //列表起始点Y坐标
 
+};
+
+MenuPage UavMenuPage = {
+	//通用属性，必填
+	.General_MenuType = MENU_TYPE_LIST,  		 //菜单类型为列表类型
+	.General_CursorStyle = REVERSE_ROUNDRECTANGLE,	 //光标类型为圆角矩形
+	.General_FontSize = OLED_UI_FONT_12,			//字高
+	.General_ParentMenuPage = &MainMenuPage,		 //父菜单为主菜单
+	.General_LineSpace = 4,						//行间距 单位：像素
+	.General_MoveStyle = UNLINEAR,				//移动方式为非线性曲线动画
+	.General_MovingSpeed = SPEED,					//动画移动速度(此值根据实际效果调整)
+	.General_ShowAuxiliaryFunction = NULL,		 //显示辅助函数
+	.General_MenuItems = UavMenuItems,		 //菜单项内容数组
+
+	//特殊属性，根据.General_MenuType的类型选择
+	.List_MenuArea = {0, 0, 128, 64},			 //列表显示区域
+	.List_IfDrawFrame = false,					 //是否显示边框
+	.List_IfDrawLinePerfix = true,				 //是否显示行前缀
+	.List_StartPointX = 4,                        //列表起始点X坐标
+	.List_StartPointY = 2,                        //列表起始点Y坐标
+
+};
+
+MenuPage UavInfoPage = {
+    .General_MenuType = MENU_TYPE_STATIC,
+    .General_ParentMenuPage = &MainMenuPage,          
+    .General_ShowAuxiliaryFunction = Uav_Info,     
+    .General_MenuItems = NULL,       
+    // 下面给一些通用的安全默认值
+    .General_FontSize = OLED_UI_FONT_12,
+    .General_LineSpace = 0,
+    ._IfInit = false,
 };
 

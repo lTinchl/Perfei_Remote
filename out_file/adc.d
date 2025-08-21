@@ -29,7 +29,6 @@
 ..\out_file\adc.o: ..\st_lib\inc\stm32f10x_usart.h
 ..\out_file\adc.o: ..\st_lib\inc\stm32f10x_wwdg.h
 ..\out_file\adc.o: ..\st_lib\inc\misc.h
-..\out_file\adc.o: ..\driver\led.h
 ..\out_file\adc.o: ..\driver\usart1.h
 ..\out_file\adc.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdio.h
 ..\out_file\adc.o: ..\driver\nrf24l01.h

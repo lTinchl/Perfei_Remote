@@ -45,5 +45,4 @@
 ..\out_file\menu.o: ..\driver\key.h
 ..\out_file\menu.o: ..\driver\pair_freq.h
 ..\out_file\menu.o: ..\driver\sendpacket.h
-..\out_file\menu.o: ..\driver\IIC_OLED.h
 ..\out_file\menu.o: ..\oled_ui\ui.h

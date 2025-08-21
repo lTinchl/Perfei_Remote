@@ -1,10 +1,10 @@
 #include "stm32f10x.h"
 #include "systick.h"
+#include "OLED_driver.h"
 
 /* 系统滴筒定时器实现可用于延时 + u8g2 使用 */
 
 #include "u8g2.h"
-#include "IIC_OLED.h"
 
 volatile uint32_t tick_count = 0;  // 需要 volatile
 volatile uint32_t millis_count = 0;
@@ -72,16 +72,16 @@ uint8_t u8g2_gpio_and_delay_stm32(U8X8_UNUSED u8x8_t *u8x8, U8X8_UNUSED uint8_t 
 
         case U8X8_MSG_GPIO_I2C_CLOCK:
             if (arg_int)
-                IIC_OLED_SCL_HIGH();
+                OLED_W_SCL(1);
             else
-                IIC_OLED_SCL_LOW();
+                OLED_W_SCL(0);
             break;
 
         case U8X8_MSG_GPIO_I2C_DATA:
             if (arg_int)
-                IIC_OLED_SDA_HIGH();
+                OLED_W_SDA(1);
             else
-                IIC_OLED_SDA_LOW();
+                OLED_W_SDA(0);
             break;
 
         default:

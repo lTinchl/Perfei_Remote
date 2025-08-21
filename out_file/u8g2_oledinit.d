@@ -34,5 +34,4 @@
 ..\out_file\u8g2_oledinit.o: ..\st_lib\inc\stm32f10x_usart.h
 ..\out_file\u8g2_oledinit.o: ..\st_lib\inc\stm32f10x_wwdg.h
 ..\out_file\u8g2_oledinit.o: ..\st_lib\inc\misc.h
-..\out_file\u8g2_oledinit.o: ..\driver\IIC_OLED.h
 ..\out_file\u8g2_oledinit.o: ..\driver\systick.h

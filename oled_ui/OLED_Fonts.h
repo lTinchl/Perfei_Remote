@@ -46,6 +46,8 @@ extern const ChineseCell8x8_t OLED_CF8x8[];  // 声明12x12字模数组
 extern const uint8_t Arrow[];
 extern const uint8_t UnKnown[];
 extern const uint8_t Image_setings[];
+extern const uint8_t Image_uavinfo[];
+extern const uint8_t Image_uavsettings[];
 extern const uint8_t Image_window[];
 extern const uint8_t Image_wechat[];
 extern const uint8_t Image_qq[];

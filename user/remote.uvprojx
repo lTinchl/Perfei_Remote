@@ -478,11 +478,6 @@
               <FilePath>..\driver\systick.c</FilePath>
             </File>
             <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\driver\led.c</FilePath>
-            </File>
-            <File>
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\driver\spi.c</FilePath>
@@ -528,11 +523,6 @@
               <FilePath>..\driver\timing_trigger.c</FilePath>
             </File>
             <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\driver\key.c</FilePath>
-            </File>
-            <File>
               <FileName>pair_freq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\driver\pair_freq.c</FilePath>
@@ -548,9 +538,9 @@
               <FilePath>..\driver\compile.h</FilePath>
             </File>
             <File>
-              <FileName>IIC_OLED.c</FileName>
+              <FileName>key.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\driver\IIC_OLED.c</FilePath>
+              <FilePath>..\driver\key.c</FilePath>
             </File>
           </Files>
         </Group>

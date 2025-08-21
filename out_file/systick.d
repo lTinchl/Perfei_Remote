@@ -34,4 +34,8 @@
 ..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
 ..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h
-..\out_file\systick.o: ..\driver\IIC_OLED.h
+..\out_file\systick.o: ..\oled_ui\OLED_driver.h
+..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\string.h
+..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\math.h
+..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdio.h
+..\out_file\systick.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h

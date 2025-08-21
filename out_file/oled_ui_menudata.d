@@ -39,3 +39,9 @@
 ..\out_file\oled_ui_menudata.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\out_file\oled_ui_menudata.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\out_file\oled_ui_menudata.o: ..\oled_ui\OLED_Fonts.h
+..\out_file\oled_ui_menudata.o: ..\menu\menu.h
+..\out_file\oled_ui_menudata.o: ..\u8g2\u8g2.h
+..\out_file\oled_ui_menudata.o: ..\u8g2\u8x8.h
+..\out_file\oled_ui_menudata.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
+..\out_file\oled_ui_menudata.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h
+..\out_file\oled_ui_menudata.o: ..\oled_ui\ui.h

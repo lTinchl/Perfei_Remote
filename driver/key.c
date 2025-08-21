@@ -59,68 +59,68 @@ uint8_t KeyScan(uint8_t mode)
     return 0;
 }
 
-void menu_process(uint8_t key_value) {
-    switch(key_value) {
-        case 1: // 确认/进入
-            if(menu_state == MENU_IDLE) {
-                menu_state = MENU_SET_HIGHLIGHT;
-                menu_ctx.level = 0;  // 进入主菜单
-                menu_ctx.index[0] = 0;
-            } else if(menu_state == MENU_SET_HIGHLIGHT) {
-                menu_state = MENU_SET_ENTER;
-            } else if(menu_state == MENU_SET_ENTER) {
-                if(menu_ctx.level < MAX_MENU_LEVEL - 1) {
-                    // 进入下一级菜单
-                    menu_ctx.level++;
-                    menu_ctx.index[menu_ctx.level] = 0;  // 下一级默认选中第一项
-                    menu_state = MENU_SET_HIGHLIGHT;
-                } else {
-                    // 到最深层，执行确认操作
-                    // todo: 根据菜单索引执行对应功能
-                }
-            }
-            break;
-        case 2: // 上
-            if(menu_state == MENU_SET_HIGHLIGHT) {
-                if(menu_ctx.index[menu_ctx.level] == 0)
-                    menu_ctx.index[menu_ctx.level] = menu_count - 1;
-                else
-                    menu_ctx.index[menu_ctx.level]--;
-            }
-            break;
-        case 3: // 返回/取消
-            if(menu_state == MENU_SET_HIGHLIGHT) {
-                if(menu_ctx.level == 0) {
-                    menu_state = MENU_IDLE;  // 退出菜单
-                } else {
-                    // 返回上一层菜单
-                    menu_ctx.index[menu_ctx.level] = 0;  // 清空当前层选择
-                    menu_ctx.level--;
-                    menu_state = MENU_SET_HIGHLIGHT;
-                }
-            } else if(menu_state == MENU_SET_ENTER) {
-                menu_state = MENU_SET_HIGHLIGHT;
-            }
-            break;
-        case 4: // 下
-            if(menu_state == MENU_SET_HIGHLIGHT) {
-                menu_ctx.index[menu_ctx.level]++;
-                if(menu_ctx.index[menu_ctx.level] >= menu_count)
-                    menu_ctx.index[menu_ctx.level] = 0;
-            }
-            break;
-    }
-}
+//void menu_process(uint8_t key_value) {
+//    switch(key_value) {
+//        case 1: // 确认/进入
+//            if(menu_state == MENU_IDLE) {
+//                menu_state = MENU_SET_HIGHLIGHT;
+//                menu_ctx.level = 0;  // 进入主菜单
+//                menu_ctx.index[0] = 0;
+//            } else if(menu_state == MENU_SET_HIGHLIGHT) {
+//                menu_state = MENU_SET_ENTER;
+//            } else if(menu_state == MENU_SET_ENTER) {
+//                if(menu_ctx.level < MAX_MENU_LEVEL - 1) {
+//                    // 进入下一级菜单
+//                    menu_ctx.level++;
+//                    menu_ctx.index[menu_ctx.level] = 0;  // 下一级默认选中第一项
+//                    menu_state = MENU_SET_HIGHLIGHT;
+//                } else {
+//                    // 到最深层，执行确认操作
+//                    // todo: 根据菜单索引执行对应功能
+//                }
+//            }
+//            break;
+//        case 2: // 上
+//            if(menu_state == MENU_SET_HIGHLIGHT) {
+//                if(menu_ctx.index[menu_ctx.level] == 0)
+//                    menu_ctx.index[menu_ctx.level] = menu_count - 1;
+//                else
+//                    menu_ctx.index[menu_ctx.level]--;
+//            }
+//            break;
+//        case 3: // 返回/取消
+//            if(menu_state == MENU_SET_HIGHLIGHT) {
+//                if(menu_ctx.level == 0) {
+//                    menu_state = MENU_IDLE;  // 退出菜单
+//                } else {
+//                    // 返回上一层菜单
+//                    menu_ctx.index[menu_ctx.level] = 0;  // 清空当前层选择
+//                    menu_ctx.level--;
+//                    menu_state = MENU_SET_HIGHLIGHT;
+//                }
+//            } else if(menu_state == MENU_SET_ENTER) {
+//                menu_state = MENU_SET_HIGHLIGHT;
+//            }
+//            break;
+//        case 4: // 下
+//            if(menu_state == MENU_SET_HIGHLIGHT) {
+//                menu_ctx.index[menu_ctx.level]++;
+//                if(menu_ctx.index[menu_ctx.level] >= menu_count)
+//                    menu_ctx.index[menu_ctx.level] = 0;
+//            }
+//            break;
+//    }
+//}
 
-void key_info(void) {
-    uint8_t key_value = KeyScan(0);
-    static uint8_t last_key_value = 0;
+// void key_info(void) {
+//     uint8_t key_value = KeyScan(0);
+//     static uint8_t last_key_value = 0;
 
-    if(key_value && key_value != last_key_value) {
-        menu_process(key_value);
-    }
-    last_key_value = key_value;
-}
+//     if(key_value && key_value != last_key_value) {
+//         menu_process(key_value);
+//     }
+//     last_key_value = key_value;
+// }
 
 
 

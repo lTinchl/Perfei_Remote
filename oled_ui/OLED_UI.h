@@ -119,6 +119,7 @@ extern uint8_t OLED_DisplayBuf[OLED_HEIGHT/8][OLED_WIDTH];
 
 #define MENU_TYPE_LIST				(0)			//列表类型
 #define MENU_TYPE_TILES				(1)			//磁贴类型
+#define MENU_TYPE_STATIC			(2)			//静态页面
 
 
 /*********************关于动画类型的宏********************** */
@@ -362,7 +363,8 @@ void RunFadeOut(void);
 void OLED_WindowDataDispose(void);
 void MoveMenuElements(void);
 void OLED_UI_MainLoop(void);
-void OLED_UI_InterruptHandler(void);     
+void OLED_UI_InterruptHandler(void);
+void Uav_Info(void);     
 
 
 

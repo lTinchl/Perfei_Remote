@@ -34,7 +34,6 @@
 ..\out_file\main.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\out_file\main.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
 ..\out_file\main.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h
-..\out_file\main.o: ..\driver\led.h
 ..\out_file\main.o: ..\driver\spi.h
 ..\out_file\main.o: ..\driver\nrf24l01.h
 ..\out_file\main.o: ..\driver\compile.h
@@ -46,7 +45,6 @@
 ..\out_file\main.o: ..\driver\key.h
 ..\out_file\main.o: ..\driver\pair_freq.h
 ..\out_file\main.o: ..\driver\sendpacket.h
-..\out_file\main.o: ..\driver\IIC_OLED.h
 ..\out_file\main.o: ..\RCC\RCC.h
 ..\out_file\main.o: ..\menu\menu.h
 ..\out_file\main.o: ..\oled_ui\ui.h

@@ -15,6 +15,10 @@
         "sendpacket.h": "c",
         "timing_trigger.h": "c",
         "oled_driver.h": "c",
-        "stm32f10x_rcc.h": "c"
+        "stm32f10x_rcc.h": "c",
+        "ui.h": "c",
+        "oled_ui_menudata.h": "c",
+        "key.h": "c",
+        "adc.h": "c"
     }
 }

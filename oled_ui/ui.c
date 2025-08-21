@@ -9,7 +9,6 @@
 #include "key.h"
 #include "pair_freq.h"
 #include "sendpacket.h"
-#include "IIC_OLED.h"
 #include "u8g2.h"
 #include "ui.h"
 
