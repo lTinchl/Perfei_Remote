@@ -19,6 +19,6 @@
         "ui.h": "c",
         "oled_ui_menudata.h": "c",
         "key.h": "c",
-        "adc.h": "c"
+        "adc.h": "c"    
     }
 }
