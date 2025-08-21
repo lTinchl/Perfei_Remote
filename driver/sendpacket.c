@@ -5,7 +5,6 @@
 #include "nrf24l01.h"
 // #include "key.h"
 #include "pair_freq.h"
-#include "u8g2.h"
 #include "compile.h"
 #include <stm32f10x_dma.h>
 
@@ -13,7 +12,6 @@ RemoteData tx = {0};
 extern Pair pair;
 extern float remoteVoltage;
 
-extern u8g2_t u8g2;
 
 u8 rxPacket[TX_PLOAD_WIDTH] = {0};
 u8 rxPacketStatus;

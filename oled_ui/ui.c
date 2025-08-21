@@ -9,7 +9,6 @@
 #include "key.h"
 #include "pair_freq.h"
 #include "sendpacket.h"
-#include "u8g2.h"
 #include "ui.h"
 
 extern u8g2_t u8g2;

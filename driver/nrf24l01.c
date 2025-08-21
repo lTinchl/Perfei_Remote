@@ -2,7 +2,6 @@
 #include "spi.h"
 #include "systick.h"
 #include "pair_freq.h"
-#include "u8g2.h"
 #include "sendpacket.h"
 
 extern Pair pair;

@@ -5,14 +5,11 @@
 #include "usart1.h"
 #include "timing_trigger.h"
 #include "nvic.h"
-#include "adc.h"
 #include "key.h"
+#include "adc.h"
 #include "pair_freq.h"
 #include "sendpacket.h"
-#include "u8g2.h"
 #include "RCC.h"
-#include "menu.h"
-#include "ui.h"
 #include "OLED_UI.h"
 #include "OLED_UI_MenuData.h"
 
@@ -41,14 +38,11 @@ int main(void)
     RCC_HSE_Configuration();
 	
     OLED_UI_Init(&MainMenuPage);
-    //  u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0, u8x8_byte_sw_i2c, u8g2_gpio_and_delay_stm32);
-    //  u8g2_InitDisplay(&u8g2);
-    //  u8g2_SetPowerSave(&u8g2, 0);
 
     while (1)
     {
         NrfTxPacket();  //发包
-        OLED_UI_MainLoop();  // 进入二级设置菜单
+        OLED_UI_MainLoop();  // 主菜单
         WaitPairing();  //对频函数
         // OledDisplayPairStatus();
     }

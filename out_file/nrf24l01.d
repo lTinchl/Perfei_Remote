@@ -32,10 +32,5 @@
 ..\out_file\nrf24l01.o: ..\driver\compile.h
 ..\out_file\nrf24l01.o: ..\driver\spi.h
 ..\out_file\nrf24l01.o: ..\driver\systick.h
-..\out_file\nrf24l01.o: ..\u8g2\u8g2.h
-..\out_file\nrf24l01.o: ..\u8g2\u8x8.h
-..\out_file\nrf24l01.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
-..\out_file\nrf24l01.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
-..\out_file\nrf24l01.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h
 ..\out_file\nrf24l01.o: ..\driver\pair_freq.h
 ..\out_file\nrf24l01.o: ..\driver\sendpacket.h

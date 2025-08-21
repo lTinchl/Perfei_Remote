@@ -1,7 +1,5 @@
 #include "OLED_UI_MenuData.h"
 #include "OLED_UI.h"
-#include "menu.h"
-#include "ui.h"
 
 /*此文件用于存放菜单数据。实际上菜单数据可以存放在任何地方，存放于此处是为了规范与代码模块化*/
 
@@ -209,7 +207,7 @@ void MainAuxFunc(void){
 //主菜单的菜单项
 MenuItem MainMenuItems[] = {
 
-	{.General_item_text = "UavInfo",.General_callback = NULL ,.General_SubMenuPage = &UavInfoPage,.Tiles_Icon = Image_uavinfo},
+	{.General_item_text = "Uav Info",.General_callback = NULL ,.General_SubMenuPage = &UavInfoPage,.Tiles_Icon = Image_uavinfo},
 	{.General_item_text = "Uav Setting",.General_callback = NULL,.General_SubMenuPage = &UavMenuPage,.Tiles_Icon = Image_uavsettings},
 	{.General_item_text = "Settings",.General_callback = NULL,.General_SubMenuPage = &SettingsMenuPage,.Tiles_Icon = Image_setings},
 	// {.General_item_text = "WeChat",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_wechat},

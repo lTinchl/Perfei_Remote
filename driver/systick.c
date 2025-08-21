@@ -2,10 +2,6 @@
 #include "systick.h"
 #include "OLED_driver.h"
 
-/* 系统滴筒定时器实现可用于延时 + u8g2 使用 */
-
-#include "u8g2.h"
-
 volatile uint32_t tick_count = 0;  // 需要 volatile
 volatile uint32_t millis_count = 0;
 
@@ -53,39 +49,3 @@ uint32_t systick_get_ms(void)
 }
 
 
-// u8g2 在 STM32 下用于 software I2C 的 GPIO 和延时选项函数
-uint8_t u8g2_gpio_and_delay_stm32(U8X8_UNUSED u8x8_t *u8x8, U8X8_UNUSED uint8_t msg, U8X8_UNUSED uint8_t arg_int, U8X8_UNUSED void *arg_ptr)
-{
-    switch (msg)
-    {
-        case U8X8_MSG_DELAY_MILLI:
-            delay_ms(arg_int);
-            break;
-
-        case U8X8_MSG_DELAY_10MICRO:
-            delay_us(10);
-            break;
-
-        case U8X8_MSG_DELAY_100NANO:
-            __NOP();  // 缓行一个命令周期
-            break;
-
-        case U8X8_MSG_GPIO_I2C_CLOCK:
-            if (arg_int)
-                OLED_W_SCL(1);
-            else
-                OLED_W_SCL(0);
-            break;
-
-        case U8X8_MSG_GPIO_I2C_DATA:
-            if (arg_int)
-                OLED_W_SDA(1);
-            else
-                OLED_W_SDA(0);
-            break;
-
-        default:
-            return 0; // 未实现的信息
-    }
-    return 1;
-}

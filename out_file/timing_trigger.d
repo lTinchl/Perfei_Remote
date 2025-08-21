@@ -30,8 +30,3 @@
 ..\out_file\timing_trigger.o: ..\st_lib\inc\stm32f10x_wwdg.h
 ..\out_file\timing_trigger.o: ..\st_lib\inc\misc.h
 ..\out_file\timing_trigger.o: ..\driver\systick.h
-..\out_file\timing_trigger.o: ..\u8g2\u8g2.h
-..\out_file\timing_trigger.o: ..\u8g2\u8x8.h
-..\out_file\timing_trigger.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
-..\out_file\timing_trigger.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
-..\out_file\timing_trigger.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h

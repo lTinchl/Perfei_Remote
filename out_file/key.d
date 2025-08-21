@@ -30,9 +30,4 @@
 ..\out_file\key.o: ..\st_lib\inc\stm32f10x_wwdg.h
 ..\out_file\key.o: ..\st_lib\inc\misc.h
 ..\out_file\key.o: ..\driver\systick.h
-..\out_file\key.o: ..\u8g2\u8g2.h
-..\out_file\key.o: ..\u8g2\u8x8.h
-..\out_file\key.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
-..\out_file\key.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stddef.h
-..\out_file\key.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\limits.h
 ..\out_file\key.o: ..\oled_ui\ui.h
