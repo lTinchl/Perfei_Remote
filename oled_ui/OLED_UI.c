@@ -20,13 +20,26 @@ bool OLED_UI_ShowFps = true;										//全局布尔型数据，用于控制是否显示帧率
 int16_t OLED_UI_Brightness = 100;									//全局变量，存储当前屏幕亮度
 OLED_UI_WindowSustainCounter OLED_SustainCounter = {0,false};			//用于存储窗口持续时间的结构体
 int16_t WindowProbDeltaData = 0;											//窗口进度条数据的增量数据
-static u8 lastSignalStatus = 0xFF; 									// 图标状态变量,初始化为非法值，确保第一次刷新
-extern Pair pair;													//飞机信息
-extern uint16_t ADC_value[5];										//电压与摇杆ADC值数组
-static uint8_t isFistrun = 1;										//弹窗
-uint16_t voltage = 0;												//电压值初始化
-char buffer[16];													//电压值存储数组
-int smooth_thr = 0, smooth_pit = 0, smooth_rol = 0, smooth_yaw = 0;	// 滤波缓冲变量（取代直接使用 tx 结构）
+
+/***********************************************************************************************/
+/**********************************这些变量用于Uav_Info函数**************************************/
+static u8 lastSignalStatus = 0xFF;									// 图标状态变量,初始化为非法值，确保第一次刷新
+extern Pair pair;													// 飞机信息
+extern uint16_t ADC_value[5];										// 电压与摇杆ADC值数组
+static uint8_t isFistrun = 1;										// 弹窗
+uint16_t voltage = 0;												// 电压值初始化
+char buffer[16];													// 电压值存储数组
+int smooth_thr = 0, smooth_pit = 0, smooth_rol = 0, smooth_yaw = 0; // 滤波缓冲变量（取代直接使用 tx 结构）
+uint8_t bar;
+uint8_t bar_x_T_R = 32;	 // 左列进度条起点
+uint8_t bar_x_P_Y = 100; // 右列进度条起点
+const uint8_t frame_w = 28, frame_h = 8;
+const uint8_t inner_y_top_1 = 24; // 第一行进度条Y
+const uint8_t inner_y_top_2 = 38; // 第二行进度条Y
+const uint8_t inner_h = 4;
+const uint8_t max_bar_width = 24; // 内部填充最大宽度
+const uint8_t center_left = 13;
+const uint8_t center_right = 14;
 
 /***********************************************************************************************/
 /***************************这些变量用于存储需要绑定动画的控件的参数*******************************/
@@ -1907,18 +1920,6 @@ void OLED_UI_InterruptHandler(void){
 	
 }
 
-
-void update_smoothed_values(void)
-{
-    // 指数滤波因子越大越快（0.3为例）
-    float alpha = 0.3f;
-
-    smooth_thr = smooth_thr * (1.0f - alpha) + tx.thr * alpha;
-    smooth_pit = smooth_pit * (1.0f - alpha) + tx.pit * alpha;
-    smooth_rol = smooth_rol * (1.0f - alpha) + tx.rol * alpha;
-    smooth_yaw = smooth_yaw * (1.0f - alpha) + tx.yaw * alpha;
-}
-
 /**
  * @brief  飞行信息界面(动态页面：信号状态、飞机与遥控电压状态、摇杆ADC值和飞控是否上锁)
  * @param  无
@@ -1926,8 +1927,10 @@ void update_smoothed_values(void)
  * @return 无
  */
 void Uav_Info(void){
-	OLED_Clear();														// 清屏
-	RemoteVoltageDetect();											    // 遥控电压检测
+	NrfTxPacket();  												// 进入才向无人机发包(以求主菜单60fps)
+	OLED_Clear();													// 清屏
+	RemoteVoltageDetect();											// 遥控电压检测
+	analyze_packet(ADC_value);										// 更新tx
 	OLED_ShowImage(0,0,9,6,Image_remoteicon);						//左上角手柄图标
     OLED_ShowString(34, 0,  "Missing...", OLED_6X8_HALF );			//信号丢失信息
 	OLED_ShowImage(118,0,11,6,Image_missingicon);					//无信号图标
@@ -1963,29 +1966,15 @@ void Uav_Info(void){
     {
         if (voltage < 340)  // 飞机电压低于 3.4V
         {
-            OLED_ShowString(92, 10, "  low   ", OLED_6X8_HALF);  // 显示低电压警告
+            OLED_ShowString(92, 10, " low   ", OLED_6X8_HALF);  // 显示低电压警告
         }
     }
 
-	  // 锁定 / 解锁  对频完成后显示（参考中心点 (48, 33)）
+	  // 锁定 / 解锁图标  对频完成后显示（参考中心点 (60, 33)）
     if (rxPacketStatus == 1 && pair.step == DONE){
-        if (rxPacket[1] == 0){OLED_ShowImage(58,54,8,9,Image_lockicon);}
+        if (rxPacket[1] == 0){OLED_ShowImage(59,54,8,9,Image_lockicon);}
         	else if (rxPacket[1] == 1){OLED_ShowImage(58,54,8,9,Image_unlockicon);}
     }
-
-		update_smoothed_values();
-		analyze_packet(ADC_value); // 更新tx
-
-		uint8_t bar;
-		uint8_t bar_x_T_R = 32; // 左列进度条起点
-		uint8_t bar_x_P_Y = 100; // 右列进度条起点
-		const uint8_t frame_w = 28, frame_h = 8;
-		const uint8_t inner_y_top_1 = 24; // 第一行进度条Y
-		const uint8_t inner_y_top_2 = 38; // 第二行进度条Y
-		const uint8_t inner_h = 4;
-		const uint8_t max_bar_width = 24; // 内部填充最大宽度
-		const uint8_t center_left = 13;
-		const uint8_t center_right = 14;
 
 		/* ---------- 第一行：Thr + Rol ---------- */
 		// Thr

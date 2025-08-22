@@ -232,7 +232,7 @@ MenuItem MainMenuItems[] = {
 	// {.General_item_text = "Alipay",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_alipay},
 	// {.General_item_text = "计算器 Calc 长文本测试 LongText",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_calc},
 	// {.General_item_text = "Night",.General_callback = NULL,.General_SubMenuPage = NULL,.Tiles_Icon = Image_night},
-	{.General_item_text = "More",.General_callback = NULL,.General_SubMenuPage = &MoreMenuPage,.Tiles_Icon = Image_more},
+	// {.General_item_text = "More",.General_callback = NULL,.General_SubMenuPage = &MoreMenuPage,.Tiles_Icon = Image_more},
 	{.General_item_text = NULL},/*最后一项的General_item_text置为NULL，表示该项为分割线*/
 
 };
