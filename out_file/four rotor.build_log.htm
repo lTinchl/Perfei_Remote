@@ -27,11 +27,20 @@ Project File Date:  08/22/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_MDK\ARM\ARMCC\Bin'
 Build target 'remote'
-compiling main.c...
+compiling OLED_UI.c...
+..\oled_ui\OLED_UI.c(1946): warning:  #223-D: function "RemoteVoltageDetect" declared implicitly
+  	RemoteVoltageDetect();								 // 遥控电压检测
+..\oled_ui\OLED_UI.c(1947): warning:  #223-D: function "analyze_packet" declared implicitly
+  	analyze_packet(ADC_value);							 // 更新tx
+..\oled_ui\OLED_UI.c(2073): warning:  #223-D: function "ShowUavWindow" declared implicitly
+  		ShowUavWindow(); // 首次进入弹窗一次
+..\oled_ui\OLED_UI.c(26): warning:  #550-D: variable "lastSignalStatus"  was set but never used
+  static u8 lastSignalStatus = 0xFF;									// 图标状态变量,初始化为非法值，确保第一次刷新
+..\oled_ui\OLED_UI.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=35758 RO-data=19422 RW-data=1764 ZI-data=3268  
+Program Size: Code=35950 RO-data=19418 RW-data=1764 ZI-data=3268  
 FromELF: creating hex file...
-"..\out_file\four rotor.axf" - 0 Error(s), 0 Warning(s).
+"..\out_file\four rotor.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -44,7 +53,7 @@ Package Vendor: Keil
   C:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

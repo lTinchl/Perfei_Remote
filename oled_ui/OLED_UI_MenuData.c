@@ -275,9 +275,9 @@ MenuItem AboutThisDeviceMenuItems[] = {
 
 MenuItem AboutOLED_UIMenuItems[] = {
 	{.General_item_text = "-[Author:]",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
-	{.General_item_text = " bilibili @ÉÏnmÍø¿ÎÄØ",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
+	{.General_item_text = " bilibili @Tinch_",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
 	{.General_item_text = "-[Adress:]",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
-	{.General_item_text = " https://github.com/bdth-7777777/OLED_UI",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
+	{.General_item_text = " https://github.com/lTinchl/Perfei_Remote",.General_callback = NULL,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
 
 	{.General_item_text = "[·µ»Ø]",.General_callback = OLED_UI_Back,.General_SubMenuPage = NULL,.List_BoolRadioBox = NULL},
 

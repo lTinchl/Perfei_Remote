@@ -1920,6 +1920,18 @@ void OLED_UI_InterruptHandler(void){
 	
 }
 
+void update_smoothed_values(void)
+{
+    // 指数滤波因子越大越快（0.3为例）
+    float alpha = 0.3f;
+
+    smooth_thr = smooth_thr * (1.0f - alpha) + tx.thr * alpha;
+    smooth_pit = smooth_pit * (1.0f - alpha) + tx.pit * alpha;
+    smooth_rol = smooth_rol * (1.0f - alpha) + tx.rol * alpha;
+    smooth_yaw = smooth_yaw * (1.0f - alpha) + tx.yaw * alpha;
+}
+
+
 /**
  * @brief  飞行信息界面(动态页面：信号状态、飞机与遥控电压状态、摇杆ADC值和飞控是否上锁)
  * @param  无
@@ -1930,6 +1942,7 @@ void Uav_Info(void)
 {
 	NrfTxPacket();										 // 进入才向无人机发包(以求主菜单60fps)
 	OLED_Clear();										 // 清屏
+	update_smoothed_values();
 	RemoteVoltageDetect();								 // 遥控电压检测
 	analyze_packet(ADC_value);							 // 更新tx
 	OLED_ShowImage(0, 0, 9, 6, Image_remoteicon);		 // 左上角手柄图标
