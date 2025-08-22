@@ -5,7 +5,11 @@
 
 ## 注意事项
 - 请至少焊接使用一个按键(最好为key1),否则将无法与无人机通信
-- 如果未使用key1请自行至文件夹oled_ui下的OLED_UI_Driver.h内将'#define Key_GetEnterStatus()    GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)'修改为你所焊接的按钮对应的引脚
+- 如果未使用key1请自行至文件夹oled_ui下的OLED_UI_Driver.h内将
+'''
+#define Key_GetEnterStatus()    GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_13)
+'''
+修改为你所焊接的按钮对应的引脚
 - 或者将main.c下的while里的'NrfTxPacket();'取消注释即可与无人机通信(此操作会导致主菜单帧数从60fps降至40fps)
 
 ## 如何使用
