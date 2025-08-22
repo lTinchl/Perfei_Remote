@@ -13,6 +13,8 @@ extern "C" {
 #include "OLED.h"
 #include "stdint.h"
 #include "stdbool.h"
+#include "sendpacket.h"
+#include "pair_freq.h"
 
 // ÏÔ´æ»º´æÇø
 extern uint8_t OLED_DisplayBuf[OLED_HEIGHT/8][OLED_WIDTH];

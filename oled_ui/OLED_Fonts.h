@@ -41,13 +41,18 @@ extern const uint8_t OLED_F6x8[][6];
 extern const ChineseCell20x20_t OLED_CF20x20[];
 extern const ChineseCell16x16_t OLED_CF16x16[];
 extern const ChineseCell12x12_t OLED_CF12x12[];  // 声明12x12字模数组
-extern const ChineseCell8x8_t OLED_CF8x8[];  // 声明12x12字模数组
+extern const ChineseCell8x8_t OLED_CF8x8[];  // 声明8x8字模数组
 /*图像数据声明*/
 extern const uint8_t Arrow[];
 extern const uint8_t UnKnown[];
 extern const uint8_t Image_setings[];
 extern const uint8_t Image_uavinfo[];
 extern const uint8_t Image_uavsettings[];
+extern const uint8_t Image_remoteicon[];
+extern const uint8_t Image_missingicon[];
+extern const uint8_t Image_onlineicon[];
+extern const uint8_t Image_lockicon[];
+extern const uint8_t Image_unlockicon[];
 extern const uint8_t Image_window[];
 extern const uint8_t Image_wechat[];
 extern const uint8_t Image_qq[];

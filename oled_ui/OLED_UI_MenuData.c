@@ -65,11 +65,29 @@ MenuWindow TextWindow = {
 	
 
 };
+
+MenuWindow UavWindow = {
+	.General_Width = 70,								//窗口宽度
+	.General_Height = 18, 							//窗口高度
+	.General_WindowType = WINDOW_ROUNDRECTANGLE, 	//窗口类型
+	.General_ContinueTime = 15.0,						//窗口持续时间
+
+	.Text_String = "上下推摇杆完成对频",							//窗口标题  
+	.Text_FontSize = OLED_UI_FONT_12,				//字高
+	.Text_FontSideDistance = 5,							//字体距离左侧的距离
+	.Text_FontTopDistance = 2,							//字体距离顶部的距离
+	
+
+};
+
 /**
  * @brief 创建显示亮度窗口
  */
 void ShowTextWindow(void){
 	OLED_UI_CreateWindow(&TextWindow);
+}
+void ShowUavWindow(void){
+	OLED_UI_CreateWindow(&UavWindow);
 }
 //关于窗口的结构体
 MenuWindow FloatDataWindow = {
@@ -743,12 +761,12 @@ MenuPage UavMenuPage = {
 
 };
 
+
 MenuPage UavInfoPage = {
     .General_MenuType = MENU_TYPE_STATIC,
     .General_ParentMenuPage = &MainMenuPage,          
     .General_ShowAuxiliaryFunction = Uav_Info,     
     .General_MenuItems = NULL,       
-    // 下面给一些通用的安全默认值
     .General_FontSize = OLED_UI_FONT_12,
     .General_LineSpace = 0,
     ._IfInit = false,

@@ -1,6 +1,6 @@
 Dependencies for Project 'remote', Target 'remote': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x68A7868A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\main.o --omf_browse ..\out_file\main.crf --depend ..\out_file\main.d)
+F (.\main.c)(0x68A7E3E3)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\main.o --omf_browse ..\out_file\main.crf --depend ..\out_file\main.d)
 I (stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -43,7 +43,7 @@ I (..\driver\adc.h)(0x687BB797)
 I (..\driver\pair_freq.h)(0x687B53C4)
 I (..\driver\sendpacket.h)(0x68889F3E)
 I (..\RCC\RCC.h)(0x68302693)
-I (..\oled_ui\OLED_UI.h)(0x68A76DEF)
+I (..\oled_ui\OLED_UI.h)(0x68A7E72F)
 I (..\oled_ui\OLED_UI_Driver.h)(0x68A0621A)
 I (..\oled_ui\OLED.h)(0x68A0621A)
 I (..\oled_ui\OLED_Driver.h)(0x68A0621A)
@@ -51,8 +51,8 @@ I (C:\Keil_MDK\ARM\ARMCC\include\string.h)(0x6025237E)
 I (C:\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (..\oled_ui\OLED_Fonts.h)(0x68A76777)
-I (..\oled_ui\OLED_UI_MenuData.h)(0x68A76954)
+I (..\oled_ui\OLED_Fonts.h)(0x68A7E2DF)
+I (..\oled_ui\OLED_UI_MenuData.h)(0x68A7EB55)
 F (.\stm32f10x_it.c)(0x65AF5B7E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\stm32f10x_it.o --omf_browse ..\out_file\stm32f10x_it.crf --depend ..\out_file\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x65AF5B7E)
 I (stm32f10x.h)(0x65AF5B7E)
@@ -476,7 +476,7 @@ I (..\st_lib\inc\stm32f10x_wwdg.h)(0x65AF5B7E)
 I (..\st_lib\inc\misc.h)(0x65AF5B7E)
 I (..\driver\systick.h)(0x68A78505)
 F (..\driver\compile.h)(0x65AF5B7E)()
-F (..\driver\key.c)(0x68A78628)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\key.o --omf_browse ..\out_file\key.crf --depend ..\out_file\key.d)
+F (..\driver\key.c)(0x68A78798)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\key.o --omf_browse ..\out_file\key.crf --depend ..\out_file\key.d)
 I (..\driver\key.h)(0x68A042FE)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
@@ -838,8 +838,8 @@ I (C:\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (..\oled_ui\OLED_Fonts.h)(0x68A76777)
-F (..\oled_ui\OLED_driver.c)(0x68A0621A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_driver.o --omf_browse ..\out_file\oled_driver.crf --depend ..\out_file\oled_driver.d)
+I (..\oled_ui\OLED_Fonts.h)(0x68A7E2DF)
+F (..\oled_ui\OLED_driver.c)(0x68A7D245)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_driver.o --omf_browse ..\out_file\oled_driver.crf --depend ..\out_file\oled_driver.d)
 I (..\oled_ui\OLED_driver.h)(0x68A0621A)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
@@ -874,11 +874,11 @@ I (C:\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-F (..\oled_ui\OLED_Fonts.c)(0x68A7672C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_fonts.o --omf_browse ..\out_file\oled_fonts.crf --depend ..\out_file\oled_fonts.d)
-I (..\oled_ui\OLED_Fonts.h)(0x68A76777)
+F (..\oled_ui\OLED_Fonts.c)(0x68A7EECB)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_fonts.o --omf_browse ..\out_file\oled_fonts.crf --depend ..\out_file\oled_fonts.d)
+I (..\oled_ui\OLED_Fonts.h)(0x68A7E2DF)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdint.h)(0x6025237E)
-F (..\oled_ui\OLED_UI.c)(0x68A7812A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_ui.o --omf_browse ..\out_file\oled_ui.crf --depend ..\out_file\oled_ui.d)
-I (..\oled_ui\OLED_UI.h)(0x68A76DEF)
+F (..\oled_ui\OLED_UI.c)(0x68A7FE3D)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_ui.o --omf_browse ..\out_file\oled_ui.crf --depend ..\out_file\oled_ui.d)
+I (..\oled_ui\OLED_UI.h)(0x68A7E72F)
 I (..\oled_ui\OLED_UI_Driver.h)(0x68A0621A)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
@@ -915,8 +915,12 @@ I (C:\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (..\oled_ui\OLED_Fonts.h)(0x68A76777)
-F (..\oled_ui\OLED_UI_Driver.c)(0x68A0621A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_ui_driver.o --omf_browse ..\out_file\oled_ui_driver.crf --depend ..\out_file\oled_ui_driver.d)
+I (..\oled_ui\OLED_Fonts.h)(0x68A7E2DF)
+I (..\driver\sendpacket.h)(0x68889F3E)
+I (..\driver\nrf24l01.h)(0x65AF5B7E)
+I (..\driver\compile.h)(0x65AF5B7E)
+I (..\driver\pair_freq.h)(0x687B53C4)
+F (..\oled_ui\OLED_UI_Driver.c)(0x68A7D437)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_ui_driver.o --omf_browse ..\out_file\oled_ui_driver.crf --depend ..\out_file\oled_ui_driver.d)
 I (..\oled_ui\OLED_UI_Driver.h)(0x68A0621A)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
@@ -946,9 +950,9 @@ I (..\st_lib\inc\stm32f10x_tim.h)(0x65AF5B7E)
 I (..\st_lib\inc\stm32f10x_usart.h)(0x65AF5B7E)
 I (..\st_lib\inc\stm32f10x_wwdg.h)(0x65AF5B7E)
 I (..\st_lib\inc\misc.h)(0x65AF5B7E)
-F (..\oled_ui\OLED_UI_MenuData.c)(0x68A786E8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_ui_menudata.o --omf_browse ..\out_file\oled_ui_menudata.crf --depend ..\out_file\oled_ui_menudata.d)
-I (..\oled_ui\OLED_UI_MenuData.h)(0x68A76954)
-I (..\oled_ui\OLED_UI.h)(0x68A76DEF)
+F (..\oled_ui\OLED_UI_MenuData.c)(0x68A8018A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ..\user -I ..\st_lib\inc -I ..\st_lib\src -I ..\driver -I ..\core -I ..\u8g2 -I ..\RCC -I ..\menu -I ..\oled_ui-IC:\Keil_MDK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="536" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\out_file\oled_ui_menudata.o --omf_browse ..\out_file\oled_ui_menudata.crf --depend ..\out_file\oled_ui_menudata.d)
+I (..\oled_ui\OLED_UI_MenuData.h)(0x68A7EB55)
+I (..\oled_ui\OLED_UI.h)(0x68A7E72F)
 I (..\oled_ui\OLED_UI_Driver.h)(0x68A0621A)
 I (..\user\stm32f10x.h)(0x65AF5B7E)
 I (..\core\core_cm3.h)(0x65AF5B7E)
@@ -985,4 +989,8 @@ I (C:\Keil_MDK\ARM\ARMCC\include\math.h)(0x60252378)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (C:\Keil_MDK\ARM\ARMCC\include\stdbool.h)(0x6025237C)
-I (..\oled_ui\OLED_Fonts.h)(0x68A76777)
+I (..\oled_ui\OLED_Fonts.h)(0x68A7E2DF)
+I (..\driver\sendpacket.h)(0x68889F3E)
+I (..\driver\nrf24l01.h)(0x65AF5B7E)
+I (..\driver\compile.h)(0x65AF5B7E)
+I (..\driver\pair_freq.h)(0x687B53C4)

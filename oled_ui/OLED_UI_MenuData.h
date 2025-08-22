@@ -15,6 +15,7 @@ extern MenuPage MainMenuPage,SettingsMenuPage,AboutThisDeviceMenuPage,
 AboutOLED_UIMenuPage,MoreMenuPage,Font8MenuPage,Font12MenuPage,Font16MenuPage
 ,Font20MenuPage,LongMenuPage,SpringMenuPage,LongListMenuPage,SmallAreaMenuPage,UavMenuPage,UavInfoPage,UavInfoPage;
 
+void ShowUavWindow(void);     //进入uav info立马弹窗
 
 #ifdef __cplusplus
 }  // extern "C"

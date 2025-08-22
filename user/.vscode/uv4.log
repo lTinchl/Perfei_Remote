@@ -1,4 +1,2 @@
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_MDK\ARM\ARMCC\Bin'
-Build target 'remote'
-"..\out_file\four rotor.axf" - 0 Error(s), 0 Warning(s).
-Build Time Elapsed:  00:00:00
+Load "..\\out_file\\four rotor.axf" 
+Erase Done.Programming Done.Verify OK.Flash Load finished at 13:35:53

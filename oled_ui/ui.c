@@ -6,12 +6,11 @@
 #include "timing_trigger.h"
 #include "nvic.h"
 #include "adc.h"
-#include "key.h"
 #include "pair_freq.h"
 #include "sendpacket.h"
 #include "ui.h"
+#include "OLED_UI.h"
 
-extern u8g2_t u8g2;
 extern Pair pair;
 extern uint16_t ADC_value[5];
 
@@ -23,30 +22,6 @@ const uint8_t menu_count = 2;
 
 // 滤波缓冲变量（取代直接使用 tx 结构）
 int smooth_thr = 0, smooth_pit = 0, smooth_rol = 0, smooth_yaw = 0;
-
-void menu_fps(u8g2_t *u8g2)
-{
-    static uint32_t last_fps_tick = 0;
-    static uint16_t frame_counter = 0;
-    static uint8_t current_fps = 0;
-    char fps_buf[8];
-
-    frame_counter++;
-    uint32_t now = systick_get_ms();
-
-    // 每秒计算一次FPS
-    if (now - last_fps_tick >= 1000)
-    {
-        current_fps = frame_counter;
-        frame_counter = 0;
-        last_fps_tick = now;
-    }
-
-    // 绘制在右下角
-    u8g2_SetFont(u8g2, u8g2_font_6x10_tr);
-    sprintf(fps_buf, "%dfps", current_fps);
-    u8g2_DrawStr(u8g2, 100, 63, fps_buf);
-}
 
 void update_smoothed_values(void)
 {
@@ -146,16 +121,14 @@ void main_muenu_ui(void)
     lastSignalStatus = currentSignalStatus;
 }
 
-void second_menu_ui(void)
-{
-    
-}
+
+
 
 void Remotecontroldata(void)
 {
     char buffer[16];
 		
-		update_smoothed_values();
+	update_smoothed_values();
     analyze_packet(ADC_value); // 更新tx
 
     uint8_t bar;
@@ -230,3 +203,5 @@ void Remotecontroldata(void)
         u8g2_DrawBox(&u8g2, bar_x_P_Y + 14, 38, width, 4);
     }
 }
+
+

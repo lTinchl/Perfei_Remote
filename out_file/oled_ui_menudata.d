@@ -39,3 +39,7 @@
 ..\out_file\oled_ui_menudata.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 ..\out_file\oled_ui_menudata.o: C:\Keil_MDK\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\out_file\oled_ui_menudata.o: ..\oled_ui\OLED_Fonts.h
+..\out_file\oled_ui_menudata.o: ..\driver\sendpacket.h
+..\out_file\oled_ui_menudata.o: ..\driver\nrf24l01.h
+..\out_file\oled_ui_menudata.o: ..\driver\compile.h
+..\out_file\oled_ui_menudata.o: ..\driver\pair_freq.h
