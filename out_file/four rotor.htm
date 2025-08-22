@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\out_file\four rotor.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\out_file\four rotor.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Aug 22 14:11:28 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Aug 22 14:17:07 2025
 <BR><P>
 <H3>Maximum Stack Usage =        740 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1612,8 +1612,7 @@ Global Symbols
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analyze_packet
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NRF24L01_TxPacket
 </UL>
-<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uav_Info
+<BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uav_Info
 </UL>
 
 <P><STRONG><a name="[eb]"></a>OLED_Brightness</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, oled_driver.o(i.OLED_Brightness))
@@ -2540,8 +2539,8 @@ Global Symbols
 <LI>Call Chain = Uav_Info &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analyze_packet
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteVoltageDetect
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NrfTxPacket
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteVoltageDetect
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowString
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowImage
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_DrawRectangle
@@ -2735,7 +2734,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[76]"></a>main</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[76]"></a>main</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 740 + Unknown Stack Size
 <LI>Call Chain = main &rArr; OLED_UI_MainLoop &rArr; MoveMenuElements &rArr; PrintMenuElements &rArr; DrawLinePermix &rArr; OLED_PrintfMixArea &rArr; OLED_ShowMixStringArea &rArr; OLED_ShowChineseArea &rArr; OLED_ShowImageArea
 </UL>
@@ -2751,7 +2750,6 @@ Global Symbols
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_HSE_Configuration
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_MainLoop
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_UI_Init
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NrfTxPacket
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_config
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NRF24L01_TX_Mode
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NRF24L01_Init
