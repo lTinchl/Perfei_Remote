@@ -15,6 +15,12 @@
 1. 通过Code下载压缩包解压使用
 2. 使用git clone部署至本地
 
+## 已支持功能
+- [x] 基础对频、飞控摇杆电压、摇杆ADC值
+- [ ] 对飞控写入PID参数
+- [ ] 获取飞机MPU6050姿态
+- [ ] 定高定点
+      
 ## 鸣谢
 
 - github用户[[bdth-7777777]](https://github.com/bdth-7777777): https://github.com/bdth-7777777/OLED_UI
