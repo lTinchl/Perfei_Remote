@@ -1,6 +1,5 @@
 #include "key.h"
 #include "systick.h"
-#include "ui.h"
 
 MenuContext menu_ctx  = {0, {0}};
 

@@ -1926,130 +1926,140 @@ void OLED_UI_InterruptHandler(void){
  * @note 无
  * @return 无
  */
-void Uav_Info(void){
-	NrfTxPacket();  												// 进入才向无人机发包(以求主菜单60fps)
-	OLED_Clear();													// 清屏
-	RemoteVoltageDetect();											// 遥控电压检测
-	analyze_packet(ADC_value);										// 更新tx
-	OLED_ShowImage(0,0,9,6,Image_remoteicon);						//左上角手柄图标
-    OLED_ShowString(34, 0,  "Missing...", OLED_6X8_HALF );			//信号丢失信息
-	OLED_ShowImage(118,0,11,6,Image_missingicon);					//无信号图标
-    
+void Uav_Info(void)
+{
+	NrfTxPacket();										 // 进入才向无人机发包(以求主菜单60fps)
+	OLED_Clear();										 // 清屏
+	RemoteVoltageDetect();								 // 遥控电压检测
+	analyze_packet(ADC_value);							 // 更新tx
+	OLED_ShowImage(0, 0, 9, 6, Image_remoteicon);		 // 左上角手柄图标
+	OLED_ShowString(34, 0, "Missing...", OLED_6X8_HALF); // 信号丢失信息
+	OLED_ShowImage(118, 0, 11, 6, Image_missingicon);	 // 无信号图标
+
 	u8 currentSignalStatus = (rxPacketStatus != 0) ? 1 : 0;
 
-    if (currentSignalStatus)
-    {
-        OLED_ShowImage(118,0,11,6,Image_onlineicon); 					// 有信号
-        OLED_ShowString(20, 0, "    Online    ",OLED_6X8_HALF);			// 在线
-    }
-    else
-    {
-        OLED_ShowString(34, 0,  "Missing...", OLED_6X8_HALF );			//信号丢失信息
-		OLED_ShowImage(118,0,11,6,Image_missingicon);					//无信号图标
-    }
-    lastSignalStatus = currentSignalStatus;
+	if (currentSignalStatus)
+	{
+		OLED_ShowImage(118, 0, 11, 6, Image_onlineicon);		 // 有信号
+		OLED_ShowString(20, 0, "    Online    ", OLED_6X8_HALF); // 在线
+	}
+	else
+	{
+		OLED_ShowString(34, 0, "Missing...", OLED_6X8_HALF); // 信号丢失信息
+		OLED_ShowImage(118, 0, 11, 6, Image_missingicon);	 // 无信号图标
+	}
+	lastSignalStatus = currentSignalStatus;
 
 	// --- 遥控电压显示 ---
-    OLED_ShowString(0, 10, "R.V:", OLED_6X8_HALF);
-    voltage = (uint16_t)(remoteVoltage * 100);  // 遥控电压
-    sprintf(buffer, "%d.%02dV", voltage / 100, voltage % 100);
-    OLED_ShowString(24, 10, buffer, OLED_6X8_HALF);  // 显示遥控电压
+	OLED_ShowString(0, 10, "R.V:", OLED_6X8_HALF);
+	voltage = (uint16_t)(remoteVoltage * 100); // 遥控电压
+	sprintf(buffer, "%d.%02dV", voltage / 100, voltage % 100);
+	OLED_ShowString(24, 10, buffer, OLED_6X8_HALF); // 显示遥控电压
 
-    // --- 飞机电压显示 ---
-    OLED_ShowString(72, 10, "F.V:", OLED_6X8_HALF);
-    voltage = (rxPacket[4] << 8) | rxPacket[3];  // 飞机电压
-    sprintf(buffer, "%d.%02dV", voltage / 100, voltage % 100);
-    OLED_ShowString(96, 10, buffer, OLED_6X8_HALF);  // 显示飞机电压
+	// --- 飞机电压显示 ---
+	OLED_ShowString(72, 10, "F.V:", OLED_6X8_HALF);
+	voltage = (rxPacket[4] << 8) | rxPacket[3]; // 飞机电压
+	sprintf(buffer, "%d.%02dV", voltage / 100, voltage % 100);
+	OLED_ShowString(96, 10, buffer, OLED_6X8_HALF); // 显示飞机电压
 
-    // 若飞机电压低于 3.4V，显示警告（覆盖原位置）
-    if (rxPacketStatus == 1 && pair.step == DONE)
-    {
-        if (voltage < 340)  // 飞机电压低于 3.4V
-        {
-            OLED_ShowString(92, 10, " low   ", OLED_6X8_HALF);  // 显示低电压警告
-        }
-    }
-
-	  // 锁定 / 解锁图标  对频完成后显示（参考中心点 (60, 33)）
-    if (rxPacketStatus == 1 && pair.step == DONE){
-        if (rxPacket[1] == 0){OLED_ShowImage(59,54,8,9,Image_lockicon);}
-        	else if (rxPacket[1] == 1){OLED_ShowImage(58,54,8,9,Image_unlockicon);}
-    }
-
-		/* ---------- 第一行：Thr + Rol ---------- */
-		// Thr
-		sprintf(buffer, "T:%d", tx.thr);
-		OLED_ShowString(0, 22, buffer, OLED_6X8_HALF);
-		OLED_DrawRectangle(bar_x_T_R, 22, frame_w, frame_h, OLED_UNFILLED);
-		bar = (smooth_thr > 1000) ? max_bar_width : (smooth_thr * max_bar_width / 1000);
-		if (bar > 0)
+	// 若飞机电压低于 3.4V，显示警告（覆盖原位置）
+	if (rxPacketStatus == 1 && pair.step == DONE)
+	{
+		if (voltage < 340) // 飞机电压低于 3.4V
 		{
-			OLED_DrawRectangle(bar_x_T_R + 2, inner_y_top_1, bar + 1, inner_h, OLED_FILLED);
-		}
-
-		// Rol
-		sprintf(buffer, "R:%d", tx.rol);
-		OLED_ShowString(72, 22, buffer, OLED_6X8_HALF);
-		OLED_DrawRectangle(bar_x_P_Y, 22, frame_w, frame_h, OLED_UNFILLED);
-		OLED_DrawLine(bar_x_P_Y + center_left, inner_y_top_1, bar_x_P_Y + center_left, inner_y_top_1 + inner_h - 1);
-		int16_t rol_offset = (int16_t)smooth_rol - 50;
-		if (rol_offset < 0)
-		{
-			uint8_t w = (uint8_t)((-rol_offset) * 11 / 50);
-			if (w > 0)
-				OLED_DrawRectangle(bar_x_P_Y + center_left - w, inner_y_top_1, w, inner_h, OLED_FILLED);
-		}
-		else
-		{
-			uint8_t w = (uint8_t)(rol_offset * 14 / 50);
-			if (w > 0)
-				OLED_DrawRectangle(bar_x_P_Y + center_right, inner_y_top_1, w, inner_h, OLED_FILLED);
-		}
-
-		/* ---------- 第二行：Yaw + Pit ---------- */
-		// Yaw
-		sprintf(buffer, "Y:%d", tx.yaw);
-		OLED_ShowString(0, 36, buffer, OLED_6X8_HALF);
-		OLED_DrawRectangle(bar_x_T_R, 36, frame_w, frame_h, OLED_UNFILLED);
-		OLED_DrawLine(bar_x_T_R + center_left, inner_y_top_2, bar_x_T_R + center_left, inner_y_top_2 + inner_h - 1);
-		int16_t yaw_offset = (int16_t)smooth_yaw - 50;
-		if (yaw_offset < 0)
-		{
-			uint8_t w = (uint8_t)((-yaw_offset) * 11 / 50);
-			if (w > 0)
-				OLED_DrawRectangle(bar_x_T_R + center_left - w, inner_y_top_2, w, inner_h, OLED_FILLED);
-		}
-		else
-		{
-			uint8_t w = (uint8_t)(yaw_offset * 14 / 50);
-			if (w > 0)
-				OLED_DrawRectangle(bar_x_T_R + center_right, inner_y_top_2, w, inner_h, OLED_FILLED);
-		}
-
-		// Pit
-		sprintf(buffer, "P:%d", tx.pit);
-		OLED_ShowString(72, 36, buffer, OLED_6X8_HALF);
-		OLED_DrawRectangle(bar_x_P_Y, 36, frame_w, frame_h, OLED_UNFILLED);
-		OLED_DrawLine(bar_x_P_Y + center_left, inner_y_top_2, bar_x_P_Y + center_left, inner_y_top_2 + inner_h - 1);
-		int16_t pit_offset = (int16_t)smooth_pit - 50;
-		if (pit_offset < 0)
-		{
-			uint8_t w = (uint8_t)((-pit_offset) * 11 / 50);
-			if (w > 0)
-				OLED_DrawRectangle(bar_x_P_Y + center_left - w, inner_y_top_2, w, inner_h, OLED_FILLED);
-		}
-		else
-		{
-			uint8_t w = (uint8_t)(pit_offset * 14 / 50);
-			if (w > 0)
-				OLED_DrawRectangle(bar_x_P_Y + center_right, inner_y_top_2, w, inner_h, OLED_FILLED);
-		}
-
-		if (isFistrun)
-		{
-			ShowUavWindow(); // 首次进入弹窗一次
-			isFistrun = 0;
+			OLED_ShowString(92, 10, " low   ", OLED_6X8_HALF); // 显示低电压警告
 		}
 	}
+	
+	// 锁定 / 解锁图标  对频完成后显示（参考中心点 (60, 33)）
+	if (rxPacketStatus == 1 && pair.step == DONE)
+	{
+		if (rxPacket[1] == 0)
+		{
+			OLED_ShowImage(59, 54, 8, 9, Image_lockicon);
+		}
+		else if (rxPacket[1] == 1)
+		{
+			OLED_ShowImage(58, 54, 8, 9, Image_unlockicon);
+		}
+	}
+
+
+
+	/* ---------- 第一行：Thr + Rol ---------- */
+	// Thr
+	sprintf(buffer, "T:%d", tx.thr);
+	OLED_ShowString(0, 22, buffer, OLED_6X8_HALF);
+	OLED_DrawRectangle(bar_x_T_R, 22, frame_w, frame_h, OLED_UNFILLED);
+	bar = (smooth_thr > 1000) ? max_bar_width : (smooth_thr * max_bar_width / 1000);
+	if (bar > 0)
+	{
+		OLED_DrawRectangle(bar_x_T_R + 2, inner_y_top_1, bar + 1, inner_h, OLED_FILLED);
+	}
+
+	// Rol
+	sprintf(buffer, "R:%d", tx.rol);
+	OLED_ShowString(72, 22, buffer, OLED_6X8_HALF);
+	OLED_DrawRectangle(bar_x_P_Y, 22, frame_w, frame_h, OLED_UNFILLED);
+	OLED_DrawLine(bar_x_P_Y + center_left, inner_y_top_1, bar_x_P_Y + center_left, inner_y_top_1 + inner_h - 1);
+	int16_t rol_offset = (int16_t)smooth_rol - 50;
+	if (rol_offset < 0)
+	{
+		uint8_t w = (uint8_t)((-rol_offset) * 11 / 50);
+		if (w > 0)
+			OLED_DrawRectangle(bar_x_P_Y + center_left - w, inner_y_top_1, w, inner_h, OLED_FILLED);
+	}
+	else
+	{
+		uint8_t w = (uint8_t)(rol_offset * 14 / 50);
+		if (w > 0)
+			OLED_DrawRectangle(bar_x_P_Y + center_right, inner_y_top_1, w, inner_h, OLED_FILLED);
+	}
+
+	/* ---------- 第二行：Yaw + Pit ---------- */
+	// Yaw
+	sprintf(buffer, "Y:%d", tx.yaw);
+	OLED_ShowString(0, 36, buffer, OLED_6X8_HALF);
+	OLED_DrawRectangle(bar_x_T_R, 36, frame_w, frame_h, OLED_UNFILLED);
+	OLED_DrawLine(bar_x_T_R + center_left, inner_y_top_2, bar_x_T_R + center_left, inner_y_top_2 + inner_h - 1);
+	int16_t yaw_offset = (int16_t)smooth_yaw - 50;
+	if (yaw_offset < 0)
+	{
+		uint8_t w = (uint8_t)((-yaw_offset) * 11 / 50);
+		if (w > 0)
+			OLED_DrawRectangle(bar_x_T_R + center_left - w, inner_y_top_2, w, inner_h, OLED_FILLED);
+	}
+	else
+	{
+		uint8_t w = (uint8_t)(yaw_offset * 14 / 50);
+		if (w > 0)
+			OLED_DrawRectangle(bar_x_T_R + center_right, inner_y_top_2, w, inner_h, OLED_FILLED);
+	}
+
+	// Pit
+	sprintf(buffer, "P:%d", tx.pit);
+	OLED_ShowString(72, 36, buffer, OLED_6X8_HALF);
+	OLED_DrawRectangle(bar_x_P_Y, 36, frame_w, frame_h, OLED_UNFILLED);
+	OLED_DrawLine(bar_x_P_Y + center_left, inner_y_top_2, bar_x_P_Y + center_left, inner_y_top_2 + inner_h - 1);
+	int16_t pit_offset = (int16_t)smooth_pit - 50;
+	if (pit_offset < 0)
+	{
+		uint8_t w = (uint8_t)((-pit_offset) * 11 / 50);
+		if (w > 0)
+			OLED_DrawRectangle(bar_x_P_Y + center_left - w, inner_y_top_2, w, inner_h, OLED_FILLED);
+	}
+	else
+	{
+		uint8_t w = (uint8_t)(pit_offset * 14 / 50);
+		if (w > 0)
+			OLED_DrawRectangle(bar_x_P_Y + center_right, inner_y_top_2, w, inner_h, OLED_FILLED);
+	}
+
+	if (isFistrun)
+	{
+		ShowUavWindow(); // 首次进入弹窗一次
+		isFistrun = 0;
+	}
+}
 
 #endif

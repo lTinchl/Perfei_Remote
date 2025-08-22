@@ -30,4 +30,3 @@
 ..\out_file\key.o: ..\st_lib\inc\stm32f10x_wwdg.h
 ..\out_file\key.o: ..\st_lib\inc\misc.h
 ..\out_file\key.o: ..\driver\systick.h
-..\out_file\key.o: ..\oled_ui\ui.h

@@ -41,7 +41,7 @@ int main(void)
 
     while (1)
     {
-        
+        //NrfTxPacket();        //发包
         OLED_UI_MainLoop();  // 主菜单
         WaitPairing();  //对频函数
         // OledDisplayPairStatus();
